@@ -1,0 +1,594 @@
+.page {
+  min-height: 100vh;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(37, 99, 235, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(14, 165, 233, 0.07),
+      transparent 30%
+    ),
+    #f7f9fc;
+  color: #0b1b38;
+}
+
+.backButton {
+  position: fixed;
+  z-index: 20;
+  top: 25px;
+  left: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  color: #0b3fcf;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #dce5f3;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(29, 55, 100, 0.1);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.backButton:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 12px 30px rgba(29, 55, 100, 0.16);
+}
+
+.registerCard {
+  width: min(1320px, calc(100vw - 28px));
+  min-height: 870px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(218, 225, 235, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 20px 70px rgba(26, 46, 80, 0.13);
+}
+
+.informationPanel {
+  min-height: 870px;
+  position: relative;
+  overflow: hidden;
+  padding: 38px;
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(192, 221, 255, 0.45),
+      transparent 30%
+    ),
+    linear-gradient(145deg, #ffffff 0%, #eff7ff 65%, #e5f3ff 100%);
+}
+
+.logoSection {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImage {
+  width: 350px;      /* increase if needed */
+  max-width: 90%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform: translateX(10px);
+}
+
+.informationContent {
+  position: relative;
+  z-index: 4;
+  margin-top: -35px;
+}
+
+.informationContent h1 {
+  max-width: 440px;
+  margin: 0;
+  color: #071b3a;
+  font-size: clamp(37px, 3.2vw, 51px);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.informationContent h1 span {
+  display: block;
+  margin-top: 6px;
+  color: #114bd2;
+}
+
+.headingLine {
+  width: 55px;
+  height: 3px;
+  margin: 22px 0 20px;
+  background: #1957dc;
+  border-radius: 10px;
+}
+
+.introduction {
+  max-width: 440px;
+  margin: 0;
+  color: #596780;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.featureList {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #142441;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.featureIcon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  color: #1152d7;
+  background: white;
+  border: 1px solid #e3eaf5;
+  border-radius: 8px;
+  box-shadow: 0 7px 18px rgba(30, 72, 140, 0.1);
+  font-size: 19px;
+}
+
+.cloudOne,
+.cloudTwo {
+  position: absolute;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.75);
+  filter: blur(4px);
+  border-radius: 999px;
+}
+
+.cloudOne {
+  width: 220px;
+  height: 70px;
+  right: -25px;
+  bottom: 300px;
+}
+
+.cloudTwo {
+  width: 160px;
+  height: 55px;
+  left: 165px;
+  bottom: 235px;
+}
+
+.schoolImage {
+  width: 100%;
+  height: 270px;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.formPanel {
+  padding: 44px 62px;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(37, 99, 235, 0.04),
+      transparent 35%
+    ),
+    white;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.formHeading {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.mobileLogo {
+  display: none;
+}
+
+.formHeading h2 {
+  margin: 0;
+  color: #071b3a;
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+.formHeading p {
+  margin: 10px 0 0;
+  color: #66738c;
+  font-size: 14px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 23px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formGroup {
+  min-width: 0;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 10px;
+  color: #0d1b37;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.inputWrapper {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 16px;
+  color: #1450d6;
+  background: white;
+  border: 1px solid #dce3ee;
+  border-radius: 9px;
+  box-shadow: 0 4px 12px rgba(28, 57, 100, 0.04);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.inputWrapper:focus-within {
+  border-color: #1654d8;
+  box-shadow: 0 0 0 4px rgba(22, 84, 216, 0.09);
+}
+
+.inputWrapper > svg {
+  flex-shrink: 0;
+  font-size: 17px;
+}
+
+.inputWrapper input,
+.inputWrapper textarea {
+  width: 100%;
+  min-width: 0;
+  color: #13213d;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.inputWrapper input {
+  height: 54px;
+}
+
+.inputWrapper input::placeholder,
+.inputWrapper textarea::placeholder {
+  color: #8590a5;
+}
+
+.textareaWrapper {
+  min-height: 74px;
+  align-items: flex-start;
+  padding-top: 18px;
+}
+
+.textareaWrapper textarea {
+  min-height: 52px;
+  resize: vertical;
+}
+
+.passwordButton {
+  padding: 6px;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  color: #7e879a;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.passwordButton:hover {
+  color: #1450d6;
+}
+
+.termsRow {
+  margin: 22px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #29364d;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.termsRow input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.customCheckbox {
+  width: 21px;
+  height: 21px;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  color: white;
+  background: #1253d8;
+  border: 1px solid #1253d8;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.termsRow a {
+  color: #ff3269;
+  text-decoration: none;
+}
+
+.termsRow a:hover {
+  text-decoration: underline;
+}
+
+.registerButton {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: white;
+  background: linear-gradient(90deg, #0750ed, #073ec5);
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 12px 24px rgba(5, 69, 218, 0.22);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.registerButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(5, 69, 218, 0.3);
+}
+
+.registerButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.divider {
+  margin: 22px 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+}
+
+.divider span {
+  height: 1px;
+  background: #e2e6ed;
+}
+
+.divider p {
+  margin: 0;
+  color: #616d83;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.googleButton {
+  width: 100%;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: #111e38;
+  background: white;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.googleButton svg {
+  color: #4285f4;
+  font-size: 20px;
+}
+
+.googleButton:hover {
+  transform: translateY(-1px);
+  background: #f9fbff;
+}
+
+.loginText {
+  margin: 22px 0 0;
+  color: #253149;
+  text-align: center;
+  font-size: 14px;
+}
+
+.loginText a {
+  color: #0750dd;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.loginText a:hover {
+  text-decoration: underline;
+}
+
+.errorMessage,
+.successMessage,
+.infoMessage {
+  margin-bottom: 20px;
+  padding: 13px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.errorMessage {
+  color: #a31227;
+  background: #fff1f3;
+  border: 1px solid #ffc9d1;
+}
+
+.successMessage {
+  color: #086238;
+  background: #ecfff5;
+  border: 1px solid #bdebd3;
+}
+
+.infoMessage {
+  color: #124c9e;
+  background: #edf6ff;
+  border: 1px solid #c9e1ff;
+}
+
+@media (max-width: 1050px) {
+  .registerCard {
+    grid-template-columns: 36% 64%;
+  }
+
+  .informationPanel {
+    padding: 30px;
+  }
+
+  .informationContent h1 {
+    font-size: 38px;
+  }
+
+  .formPanel {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 850px) {
+  .page {
+    padding: 70px 14px 20px;
+    align-items: flex-start;
+  }
+
+  .backButton {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+  }
+
+  .registerCard {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .informationPanel {
+    display: none;
+  }
+
+  .formPanel {
+    min-height: auto;
+    padding: 36px 25px;
+  }
+
+  .mobileLogo {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    color: white;
+    background: #1050d6;
+    border-radius: 12px;
+    font-size: 22px;
+  }
+
+  .formHeading h2 {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 600px) {
+  .formPanel {
+    padding: 28px 18px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .fullWidth {
+    grid-column: auto;
+  }
+
+  .formHeading {
+    margin-bottom: 25px;
+  }
+
+  .formHeading h2 {
+    font-size: 26px;
+  }
+
+  .formHeading p {
+    line-height: 1.6;
+  }
+
+  .termsRow {
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+}
