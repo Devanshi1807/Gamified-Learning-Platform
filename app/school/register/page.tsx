@@ -271,13 +271,15 @@ const handleGoogleRegistration = async () => {
           </div>
 
           <div className={styles.cloudOne} />
-          <div className={styles.cloudTwo} />
+<div className={styles.cloudTwo} />
 
-          <img
-            src="/school-campus.png"
-            alt=" school campus"
-            className={styles.schoolImage}
-          />
+<div className={styles.imageSection}>
+  <img
+    src="/school-campus.jpg"
+    alt="School Campus"
+    className={styles.schoolImage}
+  />
+</div>
         </aside>
 
         <section className={styles.formPanel}>
