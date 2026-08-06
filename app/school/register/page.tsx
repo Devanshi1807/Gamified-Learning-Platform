@@ -1,9 +1,12 @@
 "use client";
+import { signIn } from "next-auth/react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "./register.module.css";
+import { Playfair_Display } from "next/font/google";
+import { Baloo_2 } from "next/font/google";
 
 import {
   FaArrowLeft,
@@ -22,6 +25,15 @@ import {
   FaUserTie,
   FaUsers,
 } from "react-icons/fa";
+
+const exceptionalFont = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+});
+const bubblyFont = Baloo_2({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+});
 
 interface SchoolFormData {
   schoolName: string;
@@ -174,12 +186,14 @@ export default function SchoolRegisterPage() {
     }, 1800);
   };
 
-  const handleGoogleRegistration = () => {
-    setError("");
-    setGoogleMessage(
-      "Google registration requires Google OAuth configuration. The normal registration form is ready to use."
-    );
-  };
+const handleGoogleRegistration = async () => {
+  setError("");
+  setGoogleMessage("");
+
+  await signIn("google", {
+    redirectTo: "/school/dashboard",
+  });
+};
 
   return (
     <main className={`${styles.page} ${poppins.className}`}>
@@ -200,9 +214,16 @@ export default function SchoolRegisterPage() {
 
           <div className={styles.informationContent}>
             <h1>
-              Transform Your Institution Into a{" "}
-              <span>Smart Campus</span>
-            </h1>
+  Where Great
+  <br />
+  Schools Become
+
+  <span
+    className={`${styles.exceptionalText} ${bubblyFont.className}`}
+  >
+    Exceptional.
+  </span>
+</h1>
 
             <div className={styles.headingLine} />
 
@@ -254,7 +275,7 @@ export default function SchoolRegisterPage() {
 
           <img
             src="/school-campus.png"
-            alt="Modern school campus"
+            alt=" school campus"
             className={styles.schoolImage}
           />
         </aside>
@@ -533,3 +554,10 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+<div className={styles.campusImageContainer}>
+  <img
+    src="/school-campus.jpg"
+    alt=""
+    className={styles.campusImage}
+  />
+</div>
