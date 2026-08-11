@@ -1,0 +1,562 @@
+
+/* login.module.css */
+
+/* =========================================================
+   COLOR THEME
+   Primary: Deep Green
+   Accent: Emerald
+   Background: Warm Off-White
+   Dark: Green-Black
+   ========================================================= */
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.backButton {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: #166534;
+  text-decoration: none;
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+
+  border: 1px solid rgba(22, 101, 52, 0.15);
+
+  box-shadow: 0 4px 12px rgba(20, 83, 45, 0.08);
+
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.backButton:hover {
+  background: #ffffff;
+  color: #14532d;
+  transform: translateX(-3px);
+  box-shadow: 0 6px 16px rgba(20, 83, 45, 0.14);
+}
+
+/* =========================================================
+   MAIN LOGIN CARD
+   ========================================================= */
+
+.loginCard {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+
+  width: 100%;
+  max-width: 1000px;
+
+  background: #ffffff;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 25px 50px rgba(20, 83, 45, 0.14),
+    0 8px 20px rgba(20, 83, 45, 0.06);
+
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   LEFT INFORMATION PANEL
+   ========================================================= */
+
+.informationPanel {
+  background: linear-gradient(
+    145deg,
+    #f0fdf4 0%,
+    #ecfdf5 55%,
+    #dcfce7 100%
+  );
+
+  color: #14532d;
+
+  padding: 3rem 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+  overflow: hidden;
+
+  border-right: 1px solid #d1fae5;
+}
+
+.logoSection {
+  margin-bottom: 2rem;
+}
+
+.logoImage {
+  max-height: 75px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* =========================================================
+   INFORMATION CONTENT
+   ========================================================= */
+
+.informationContent h1 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  font-weight: 800;
+
+  color: #14532d;
+
+  margin-bottom: 1rem;
+}
+
+.exceptionalText {
+  color: #15803d;
+}
+
+.headingLine {
+  width: 50px;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #166534,
+    #22c55e
+  );
+
+  border-radius: 2px;
+
+  margin-bottom: 1.5rem;
+}
+
+.introduction {
+  font-size: 0.95rem;
+  line-height: 1.6;
+
+  color: #4b6354;
+
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   FEATURE LIST
+   ========================================================= */
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  color: #365443;
+}
+
+.featureIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  background: #dcfce7;
+
+  border-radius: 8px;
+
+  color: #15803d;
+
+  font-size: 0.9rem;
+
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================================================
+   DECORATIVE BACKGROUND ELEMENTS
+   ========================================================= */
+
+.cloudOne,
+.cloudTwo {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: rgba(34, 197, 94, 0.07);
+
+  pointer-events: none;
+}
+
+.cloudOne {
+  width: 200px;
+  height: 200px;
+
+  top: -50px;
+  right: -50px;
+}
+
+.cloudTwo {
+  width: 150px;
+  height: 150px;
+
+  bottom: -30px;
+  left: -30px;
+}
+
+/* =========================================================
+   RIGHT FORM PANEL
+   ========================================================= */
+
+.formPanel {
+  padding: 3rem 2.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* =========================================================
+   FORM HEADING
+   ========================================================= */
+
+.formHeading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-bottom: 1.8rem;
+}
+
+.mobileLogo {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  background: #ecfdf5;
+
+  color: #166534;
+
+  border-radius: 12px;
+
+  font-size: 1.2rem;
+
+  border: 1px solid #d1fae5;
+}
+
+.formHeading h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+
+  color: #14532d;
+
+  margin-bottom: 0.3rem;
+}
+
+.formHeading p {
+  font-size: 0.85rem;
+
+  color: #64748b;
+}
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.errorMessage {
+  background-color: #fef2f2;
+
+  color: #b91c1c;
+
+  padding: 0.8rem 1rem;
+
+  border-radius: 8px;
+
+  font-size: 0.85rem;
+
+  margin-bottom: 1.2rem;
+
+  border-left: 4px solid #ef4444;
+}
+
+.successMessage {
+  background-color: #f0fdf4;
+
+  color: #15803d;
+
+  padding: 0.8rem 1rem;
+
+  border-radius: 8px;
+
+  font-size: 0.85rem;
+
+  margin-bottom: 1.2rem;
+
+  border-left: 4px solid #22c55e;
+}
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  color: #365443;
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  background: #f8fafc;
+
+  border: 1.5px solid #d1d5db;
+
+  border-radius: 10px;
+
+  padding: 0 0.9rem;
+
+  transition: all 0.3s ease;
+}
+
+.inputWrapper svg {
+  color: #15803d;
+
+  font-size: 0.95rem;
+
+  transition: color 0.2s ease;
+}
+
+.inputWrapper input {
+  width: 100%;
+
+  padding: 0.75rem 0;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 0.95rem;
+
+  color: #1f2937;
+
+  outline: none;
+}
+
+.inputWrapper input::placeholder {
+  color: #94a3b8;
+}
+
+.inputWrapper:focus-within {
+  border-color: #16a34a;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+.inputWrapper:focus-within svg {
+  color: #166534;
+}
+
+/* =========================================================
+   LOGIN BUTTON
+   ========================================================= */
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  width: 100%;
+
+  padding: 0.85rem;
+
+  margin-top: 0.5rem;
+
+  background: linear-gradient(
+    135deg,
+    #166534 0%,
+    #15803d 100%
+  );
+
+  color: #ffffff;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(22, 101, 52, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.loginButton:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    #14532d 0%,
+    #166534 100%
+  );
+
+  box-shadow:
+    0 6px 18px rgba(22, 101, 52, 0.32);
+
+  transform: translateY(-1px);
+}
+
+.loginButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.loginButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   REGISTER TEXT
+   ========================================================= */
+
+.registerText {
+  text-align: center;
+
+  font-size: 0.85rem;
+
+  color: #64748b;
+
+  margin-top: 1.5rem;
+}
+
+.registerText a {
+  color: #15803d;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: color 0.2s ease;
+}
+
+.registerText a:hover {
+  color: #14532d;
+
+  text-decoration: underline;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+
+    align-items: stretch;
+
+    background: linear-gradient(
+      135deg,
+      #ecfdf5 0%,
+      #d1fae5 100%
+    );
+  }
+
+  .loginCard {
+    grid-template-columns: 1fr;
+
+    max-width: 450px;
+
+    margin: 0 auto;
+
+    border-radius: 16px;
+  }
+
+  .informationPanel {
+    display: none;
+  }
+
+  .formPanel {
+    padding: 2rem 1.5rem;
+  }
+
+  .mobileLogo {
+    display: flex;
+  }
+
+  .backButton {
+    top: 1rem;
+    left: 1rem;
+
+    padding: 0.4rem 0.9rem;
+
+    font-size: 0.85rem;
+  }
+}
+
