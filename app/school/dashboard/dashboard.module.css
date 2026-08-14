@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.dashboard {
+  min-height: 100vh;
+
+  margin-left: 270px;
+
+  background: #f6f9fd;
+
+  font-family: "Manrope", sans-serif;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 34px 36px 50px;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+  margin-bottom: 28px;
+}
+
+.welcome p {
+  margin: 0 0 7px;
+
+  color: #2563eb;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.welcome h1 {
+  margin: 0;
+
+  color: #17233c;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 29px;
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.welcome span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #718096;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+.statsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .content {
+    padding: 28px 26px 40px;
+  }
+
+  .statsGrid {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 800px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .content {
+    padding: 25px 20px 35px;
+  }
+
+  .welcome h1 {
+    font-size: 24px;
+  }
+
+  .welcome span {
+    font-size: 12px;
+  }
+}

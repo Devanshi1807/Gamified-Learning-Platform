@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.container {
+  margin-top: 28px;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3eaf3;
+  border-radius: 17px;
+
+  box-shadow:
+    0 4px 14px rgba(37, 76, 130, 0.04);
+
+  font-family: "Manrope", sans-serif;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #e7edf5;
+}
+
+.heading h2 {
+  margin: 0;
+
+  color: #17233c;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.heading p {
+  margin: 5px 0 0;
+
+  color: #718096;
+
+  font-size: 12px;
+}
+
+.viewAll {
+  border: none;
+
+  background: transparent;
+
+  color: #2563eb;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.viewAll:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+
+/* =========================
+   ACTIVITY LIST
+========================= */
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 17px 4px;
+
+  border-bottom: 1px solid #edf2f7;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+
+  padding-bottom: 3px;
+}
+
+.activityItem:first-child {
+  padding-top: 20px;
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   TEACHER
+========================= */
+
+.teacher {
+  background: #e8f0ff;
+
+  color: #2563eb;
+}
+
+
+/* =========================
+   ANNOUNCEMENT
+========================= */
+
+.announcement {
+  background: #eaf4ff;
+
+  color: #0284c7;
+}
+
+
+/* =========================
+   STUDENT
+========================= */
+
+.student {
+  background: #e8edff;
+
+  color: #4f46e5;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.activityContent {
+  min-width: 0;
+}
+
+.activityContent p {
+  margin: 0;
+
+  color: #34445c;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.activityContent span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #8a98aa;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .heading {
+    align-items: flex-start;
+  }
+
+  .heading h2 {
+    font-size: 16px;
+  }
+
+  .viewAll {
+    font-size: 11px;
+  }
+
+  .activityItem {
+    gap: 11px;
+  }
+
+  .iconWrapper {
+    width: 36px;
+    height: 36px;
+
+    font-size: 12px;
+  }
+
+  .activityContent p {
+    font-size: 12px;
+  }
+}

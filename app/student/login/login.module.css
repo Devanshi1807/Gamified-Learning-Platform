@@ -1,0 +1,825 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(72, 187, 120, 0.12), transparent 28%),
+    radial-gradient(circle at 92% 85%, rgba(99, 102, 241, 0.10), transparent 30%),
+    #f7faf9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 70px 24px 40px;
+
+  font-family: "DM Sans", sans-serif;
+  color: #17211d;
+
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.backButton {
+  position: absolute;
+  top: 26px;
+  left: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #52605a;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 9px 14px;
+  border-radius: 10px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.backButton:hover {
+  background: #e9f5ef;
+  color: #159447;
+  transform: translateX(-2px);
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.loginCard {
+  width: min(1120px, 100%);
+  min-height: 650px;
+
+  display: grid;
+  grid-template-columns: 47% 53%;
+
+  background: #ffffff;
+
+  border: 1px solid #e5ece8;
+  border-radius: 28px;
+
+  box-shadow:
+    0 30px 70px rgba(29, 52, 43, 0.10),
+    0 8px 25px rgba(29, 52, 43, 0.05);
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+
+/* =========================
+   LEFT INFORMATION PANEL
+========================= */
+
+.informationPanel {
+  position: relative;
+
+  padding: 46px 52px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #effbf4 0%,
+      #e8f8f0 48%,
+      #f1f8ff 100%
+    );
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Decorative circles */
+
+.informationPanel::before {
+  content: "";
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  border-radius: 50%;
+
+  background: rgba(72, 187, 120, 0.10);
+
+  top: -110px;
+  right: -90px;
+}
+
+.informationPanel::after {
+  content: "";
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  bottom: -80px;
+  left: -70px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logoSection {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 112px;
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.informationContent {
+  position: relative;
+  z-index: 3;
+
+  margin-top: 72px;
+
+  max-width: 430px;
+}
+
+.informationContent h1 {
+  margin: 0;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  font-size: clamp(42px, 4vw, 62px);
+  line-height: 1.02;
+
+  letter-spacing: -2.5px;
+
+  color: #18251f;
+}
+
+.highlightText {
+  color: #159447;
+}
+
+
+/* Accent line */
+
+.headingLine {
+  width: 62px;
+  height: 5px;
+
+  margin: 24px 0 22px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #159447,
+    #45c47a
+  );
+}
+
+
+.introduction {
+  max-width: 390px;
+
+  margin: 0;
+
+  color: #617069;
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  margin-top: 34px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  color: #34443d;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.featureIcon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #159447;
+
+  box-shadow:
+    0 5px 15px rgba(25, 80, 54, 0.08);
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   DECORATIVE CLOUDS
+========================= */
+
+.cloudOne,
+.cloudTwo {
+  position: absolute;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  z-index: 1;
+}
+
+.cloudOne {
+  width: 190px;
+  height: 55px;
+
+  bottom: 45px;
+  left: 80px;
+
+  transform: rotate(-4deg);
+}
+
+.cloudTwo {
+  width: 130px;
+  height: 42px;
+
+  bottom: 85px;
+  left: 205px;
+
+  transform: rotate(5deg);
+}
+
+
+/* =========================
+   SCHOOL IMAGE
+========================= */
+
+.schoolImage {
+  position: absolute;
+
+  z-index: 2;
+
+  width: 235px;
+  height: auto;
+
+  right: 24px;
+  bottom: 0;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 15px 20px rgba(40, 70, 55, 0.12));
+}
+
+
+/* =========================
+   RIGHT FORM PANEL
+========================= */
+
+.formPanel {
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 55px 70px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 440px;
+}
+
+
+/* =========================
+   FORM HEADING
+========================= */
+
+.formHeading {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 36px;
+}
+
+.formHeading h2 {
+  margin: 0;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  color: #18251f;
+
+  font-size: 29px;
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+}
+
+.formHeading p {
+  margin: 7px 0 0;
+
+  color: #7a8781;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* Mobile icon */
+
+.mobileLogo {
+  width: 48px;
+  height: 48px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  color: #159447;
+
+  background: #eaf8ef;
+
+  font-size: 19px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+
+  gap: 22px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.formGroup label {
+  color: #34433c;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.inputWrapper {
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 0 16px;
+
+  border: 1.5px solid #dfe8e3;
+  border-radius: 13px;
+
+  background: #fbfdfc;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.inputWrapper svg {
+  color: #7b8a83;
+
+  font-size: 16px;
+
+  flex-shrink: 0;
+
+  transition: color 0.2s ease;
+}
+
+.inputWrapper:focus-within {
+  background: #ffffff;
+
+  border-color: #32aa67;
+
+  box-shadow:
+    0 0 0 4px rgba(50, 170, 103, 0.10);
+}
+
+.inputWrapper:focus-within svg {
+  color: #159447;
+}
+
+.inputWrapper input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #18251f;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 14px;
+}
+
+.inputWrapper input::placeholder {
+  color: #a1aca7;
+}
+
+
+/* =========================
+   FORGOT PASSWORD
+========================= */
+
+.forgotPassword {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: -8px;
+}
+
+.forgotPassword a {
+  color: #159447;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.forgotPassword a:hover {
+  color: #0d7136;
+  text-decoration: underline;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.loginButton {
+  width: 100%;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 5px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #159447,
+    #28b865
+  );
+
+  color: #ffffff;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 9px 22px rgba(21, 148, 71, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.loginButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 13px 28px rgba(21, 148, 71, 0.27);
+
+  filter: brightness(1.02);
+}
+
+.loginButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.loginButton:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
+.errorMessage {
+  margin-bottom: 20px;
+
+  padding: 13px 15px;
+
+  border-radius: 11px;
+
+  background: #fff2f2;
+
+  border: 1px solid #ffd6d6;
+
+  color: #c03939;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   HELP TEXT
+========================= */
+
+.helpText {
+  margin: 28px 0 0;
+
+  color: #87928d;
+
+  font-size: 12.5px;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+.helpText::first-line {
+  color: #6d7973;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .page {
+    padding: 80px 20px 30px;
+  }
+
+  .loginCard {
+    grid-template-columns: 42% 58%;
+    min-height: 600px;
+  }
+
+  .informationPanel {
+    padding: 40px 35px;
+  }
+
+  .informationContent {
+    margin-top: 60px;
+  }
+
+  .informationContent h1 {
+    font-size: 43px;
+    letter-spacing: -1.8px;
+  }
+
+  .introduction {
+    font-size: 14px;
+  }
+
+  .featureItem {
+    font-size: 13px;
+  }
+
+  .schoolImage {
+    width: 185px;
+    right: 5px;
+  }
+
+  .formPanel {
+    padding: 45px 45px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .page {
+    min-height: 100vh;
+
+    padding: 80px 16px 30px;
+
+    overflow: auto;
+
+    align-items: flex-start;
+  }
+
+  .backButton {
+    top: 20px;
+    left: 18px;
+  }
+
+  .loginCard {
+    display: block;
+
+    width: 100%;
+
+    min-height: auto;
+
+    border-radius: 22px;
+  }
+
+  /* Hide decorative desktop panel */
+
+  .informationPanel {
+    display: none;
+  }
+
+  .formPanel {
+    width: 100%;
+
+    padding: 38px 24px 32px;
+  }
+
+  .formContainer {
+    max-width: none;
+  }
+
+  .mobileLogo {
+    display: flex;
+  }
+
+  .formHeading {
+    margin-bottom: 30px;
+  }
+
+  .formHeading h2 {
+    font-size: 25px;
+  }
+
+  .formHeading p {
+    font-size: 13px;
+  }
+
+  .inputWrapper {
+    height: 53px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 420px) {
+  .page {
+    padding: 75px 12px 20px;
+  }
+
+  .formPanel {
+    padding: 30px 19px 28px;
+  }
+
+  .loginCard {
+    border-radius: 18px;
+  }
+
+  .formHeading {
+    gap: 12px;
+  }
+
+  .mobileLogo {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+  }
+
+  .formHeading h2 {
+    font-size: 22px;
+  }
+
+  .formHeading p {
+    font-size: 12px;
+  }
+
+  .loginForm {
+    gap: 19px;
+  }
+
+  .inputWrapper {
+    height: 51px;
+
+    padding: 0 14px;
+  }
+
+  .loginButton {
+    height: 53px;
+  }
+
+  .helpText {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .backButton,
+  .inputWrapper,
+  .loginButton {
+    transition: none;
+  }
+}
+
