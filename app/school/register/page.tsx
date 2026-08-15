@@ -1,4 +1,5 @@
 "use client";
+import { signIn } from "next-auth/react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -57,10 +58,12 @@ const initialFormData: SchoolFormData = {
 export default function SchoolRegisterPage() {
   const router = useRouter();
 
-  const [formData, setFormData] = useState<SchoolFormData>(initialFormData);
+  const [formData, setFormData] =
+    useState<SchoolFormData>(initialFormData);
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState(false);
 
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [error, setError] = useState("");
@@ -69,7 +72,7 @@ export default function SchoolRegisterPage() {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleInputChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
 
@@ -80,6 +83,20 @@ export default function SchoolRegisterPage() {
 
     setError("");
     setGoogleMessage("");
+  };
+
+  const generateSchoolId = () => {
+    const schoolCode = formData.schoolName
+      .replace(/[^a-zA-Z]/g, "")
+      .slice(0, 3)
+      .toUpperCase()
+      .padEnd(3, "X");
+
+    const randomNumber = Math.floor(
+      100000 + Math.random() * 900000
+    );
+
+    return `NOIS-${schoolCode}-${randomNumber}`;
   };
 
   const validateForm = () => {
@@ -122,7 +139,7 @@ export default function SchoolRegisterPage() {
     return "";
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const validationError = validateForm();
@@ -134,54 +151,49 @@ export default function SchoolRegisterPage() {
 
     setIsSubmitting(true);
     setError("");
-    setSuccessMessage("");
 
-    try {
-      const response = await fetch("/api/school/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          schoolName: formData.schoolName.trim(),
-          principalName: formData.principalName.trim(),
-          schoolEmail: formData.schoolEmail.trim(),
-          contactNumber: formData.contactNumber.trim(),
-          address: formData.address.trim(),
-          password: formData.password,
-        }),
-      });
+    const schoolId = generateSchoolId();
 
-      const data = await response.json();
+    const schoolRecord = {
+      schoolId,
+      schoolName: formData.schoolName.trim(),
+      principalName: formData.principalName.trim(),
+      schoolEmail: formData.schoolEmail.trim(),
+      contactNumber: formData.contactNumber.trim(),
+      address: formData.address.trim(),
+      createdAt: new Date().toISOString(),
+    };
 
-      if (!response.ok) {
-        setError(data.message || "Registration failed.");
-        return;
-      }
+    /*
+      This stores the school temporarily in the browser.
 
-      setSuccessMessage(
-        `School registered successfully. Your School ID is ${data.school.school_id}`,
-      );
+      Later, replace this with an API request to your database.
+      Never store passwords in localStorage.
+    */
+    localStorage.setItem(
+      "noisRegisteredSchool",
+      JSON.stringify(schoolRecord)
+    );
 
-      window.setTimeout(() => {
-        router.push("/school/dashboard");
-      }, 1800);
-    } catch (error) {
-      console.error("Registration request failed:", error);
-      setError("Unable to connect to the server. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    localStorage.setItem("noisSchoolId", schoolId);
+
+    setSuccessMessage(
+      `School registered successfully. Your School ID is ${schoolId}`
+    );
+
+    window.setTimeout(() => {
+      router.push("/school/dashboard");
+    }, 1800);
   };
 
-  // const handleGoogleRegistration = async () => {
-  //   setError("");
-  //   setGoogleMessage("");
+const handleGoogleRegistration = async () => {
+  setError("");
+  setGoogleMessage("");
 
-  //   await signIn("google", {
-  //     redirectTo: "/school/dashboard",
-  //   });
-  // };
+  await signIn("google", {
+    redirectTo: "/school/dashboard",
+  });
+};
 
   return (
     <main className={`${styles.page} ${poppins.className}`}>
@@ -202,21 +214,22 @@ export default function SchoolRegisterPage() {
 
           <div className={styles.informationContent}>
             <h1>
-              Where Great
-              <br />
-              Schools Become
-              <span
-                className={`${styles.exceptionalText} ${bubblyFont.className}`}
-              >
-                Exceptional.
-              </span>
-            </h1>
+  Where Great
+  <br />
+  Schools Become
+
+  <span
+    className={`${styles.exceptionalText} ${bubblyFont.className}`}
+  >
+    Exceptional.
+  </span>
+</h1>
 
             <div className={styles.headingLine} />
 
             <p className={styles.introduction}>
-              Manage students, teachers, attendance, exams and more from one
-              unified platform.
+              Manage students, teachers, attendance, exams and more
+              from one unified platform.
             </p>
 
             <div className={styles.featureList}>
@@ -258,13 +271,15 @@ export default function SchoolRegisterPage() {
           </div>
 
           <div className={styles.cloudOne} />
-          <div className={styles.cloudTwo} />
+<div className={styles.cloudTwo} />
 
-          {/* <img
-            src="/school-campus.png"
-            alt=" school campus"
-            className={styles.schoolImage}
-          /> */}
+<div className={styles.imageSection}>
+  <img
+    src="/school-campus.jpg"
+    alt="School Campus"
+    className={styles.schoolImage}
+  />
+</div>
         </aside>
 
         <section className={styles.formPanel}>
@@ -277,20 +292,26 @@ export default function SchoolRegisterPage() {
               <div>
                 <h2>Register Your School</h2>
                 <p>
-                  Create your school account and start your digital journey with
-                  NOIS.
+                  Create your school account and start your digital
+                  journey with NOIS.
                 </p>
               </div>
             </div>
 
-            {error && <div className={styles.errorMessage}>{error}</div>}
+            {error && (
+              <div className={styles.errorMessage}>{error}</div>
+            )}
 
             {successMessage && (
-              <div className={styles.successMessage}>{successMessage}</div>
+              <div className={styles.successMessage}>
+                {successMessage}
+              </div>
             )}
 
             {googleMessage && (
-              <div className={styles.infoMessage}>{googleMessage}</div>
+              <div className={styles.infoMessage}>
+                {googleMessage}
+              </div>
             )}
 
             <form onSubmit={handleSubmit}>
@@ -314,7 +335,9 @@ export default function SchoolRegisterPage() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="principalName">Principal Name</label>
+                  <label htmlFor="principalName">
+                    Principal Name
+                  </label>
 
                   <div className={styles.inputWrapper}>
                     <FaUserTie />
@@ -350,7 +373,9 @@ export default function SchoolRegisterPage() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="contactNumber">Contact Number</label>
+                  <label htmlFor="contactNumber">
+                    Contact Number
+                  </label>
 
                   <div className={styles.inputWrapper}>
                     <FaPhoneAlt />
@@ -367,7 +392,9 @@ export default function SchoolRegisterPage() {
                   </div>
                 </div>
 
-                <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                <div
+                  className={`${styles.formGroup} ${styles.fullWidth}`}
+                >
                   <label htmlFor="address">Address</label>
 
                   <div
@@ -406,9 +433,13 @@ export default function SchoolRegisterPage() {
                     <button
                       type="button"
                       className={styles.passwordButton}
-                      onClick={() => setShowPassword((current) => !current)}
+                      onClick={() =>
+                        setShowPassword((current) => !current)
+                      }
                       aria-label={
-                        showPassword ? "Hide password" : "Show password"
+                        showPassword
+                          ? "Hide password"
+                          : "Show password"
                       }
                     >
                       {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -417,7 +448,9 @@ export default function SchoolRegisterPage() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="confirmPassword">Confirm Password</label>
+                  <label htmlFor="confirmPassword">
+                    Confirm Password
+                  </label>
 
                   <div className={styles.inputWrapper}>
                     <FaLock />
@@ -425,7 +458,9 @@ export default function SchoolRegisterPage() {
                     <input
                       id="confirmPassword"
                       name="confirmPassword"
-                      type={showConfirmPassword ? "text" : "password"}
+                      type={
+                        showConfirmPassword ? "text" : "password"
+                      }
                       placeholder="Confirm password"
                       value={formData.confirmPassword}
                       onChange={handleInputChange}
@@ -436,7 +471,9 @@ export default function SchoolRegisterPage() {
                       type="button"
                       className={styles.passwordButton}
                       onClick={() =>
-                        setShowConfirmPassword((current) => !current)
+                        setShowConfirmPassword(
+                          (current) => !current
+                        )
                       }
                       aria-label={
                         showConfirmPassword
@@ -444,7 +481,11 @@ export default function SchoolRegisterPage() {
                           : "Show confirm password"
                       }
                     >
-                      {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                      {showConfirmPassword ? (
+                        <FaEyeSlash />
+                      ) : (
+                        <FaEye />
+                      )}
                     </button>
                   </div>
                 </div>
@@ -466,8 +507,8 @@ export default function SchoolRegisterPage() {
 
                 <span>
                   I agree to the{" "}
-                  <Link href="/terms">Terms &amp; Conditions</Link> and{" "}
-                  <Link href="/privacy">Privacy Policy</Link>
+                  <Link href="/terms">Terms &amp; Conditions</Link>{" "}
+                  and <Link href="/privacy">Privacy Policy</Link>
                 </span>
               </label>
 
@@ -494,7 +535,7 @@ export default function SchoolRegisterPage() {
               <button
                 type="button"
                 className={styles.googleButton}
-                // onClick={handleGoogleRegistration}
+                onClick={handleGoogleRegistration}
               >
                 <FaGoogle />
                 <span>Register with Google</span>
@@ -516,5 +557,9 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 <div className={styles.campusImageContainer}>
-  <img src="/school-campus.jpg" alt="" className={styles.campusImage} />
-</div>;
+  <img
+    src="/school-campus.jpg"
+    alt=""
+    className={styles.campusImage}
+  />
+</div>
