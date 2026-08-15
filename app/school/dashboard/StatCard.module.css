@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.card {
+  min-height: 175px;
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #ffffff;
+
+  border: 1px solid #e3eaf3;
+  border-radius: 17px;
+
+  box-shadow:
+    0 4px 14px rgba(37, 76, 130, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  font-family: "Manrope", sans-serif;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(37, 76, 130, 0.09);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.topRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  font-size: 17px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  margin-top: 18px;
+}
+
+.title {
+  margin: 0;
+
+  color: #718096;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.content h2 {
+  margin: 4px 0 1px;
+
+  color: #17233c;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.description {
+  margin: 0;
+
+  color: #8a98aa;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   TEACHERS
+   ROYAL BLUE
+========================= */
+
+.teachers .iconWrapper {
+  background: #e8f0ff;
+
+  color: #2563eb;
+}
+
+
+/* =========================
+   STUDENTS
+   INDIGO
+========================= */
+
+.students .iconWrapper {
+  background: #e9eaff;
+
+  color: #4f46e5;
+}
+
+
+/* =========================
+   CLASSES
+   SKY BLUE
+========================= */
+
+.classes .iconWrapper {
+  background: #e5f5ff;
+
+  color: #0284c7;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .card {
+    min-height: 160px;
+
+    padding: 20px;
+  }
+
+  .content h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    min-height: 145px;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .content h2 {
+    font-size: 26px;
+  }
+}
