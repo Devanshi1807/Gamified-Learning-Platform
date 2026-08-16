@@ -3,7 +3,15 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FaArrowLeft, FaSchool, FaShieldAlt, FaKey } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaSchool,
+  FaShieldAlt,
+  FaKey,
+  FaUsers,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 
 import styles from "./login.module.css";
 
@@ -13,6 +21,7 @@ export default function SchoolLoginPage() {
   const [schoolId, setSchoolId] = useState("");
   const [password, setPassword] = useState("");
 
+  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [error, setError] = useState("");
@@ -71,76 +80,91 @@ export default function SchoolLoginPage() {
 
   return (
     <main className={styles.page}>
+      {/* BACK BUTTON */}
       <Link href="/" className={styles.backButton}>
         <FaArrowLeft />
         <span>Back</span>
       </Link>
 
       <section className={styles.loginCard}>
-        {/* LEFT PANEL */}
+        {/* =====================================================
+            LEFT INFORMATION PANEL
+        ====================================================== */}
         <aside className={styles.informationPanel}>
-          <div className={styles.logoSection}>
-            <img
-              src="/nois_logo.png"
-              alt="NOIS logo"
-              className={styles.logoImage}
-            />
-          </div>
+          <div className={styles.leftContent}>
+            {/* LOGO */}
+            <div className={styles.logoSection}>
+              <img
+                src="/nois_logo.png"
+                alt="NOIS logo"
+                className={styles.logoImage}
+              />
+            </div>
 
-          <div className={styles.informationContent}>
-            <h1>
-              Welcome
-              <br />
-              <span className={styles.exceptionalText}>Back.</span>
-            </h1>
+            {/* INFORMATION */}
+            <div className={styles.informationContent}>
+              <h1>
+                Welcome
+                <br />
+                <span className={styles.exceptionalText}>Back.</span>
+              </h1>
 
-            <div className={styles.headingLine} />
+              <div className={styles.headingLine} />
 
-            <p className={styles.introduction}>
-              Manage your school, teachers, students and learning activities
-              from one unified platform.
-            </p>
+              <p className={styles.introduction}>
+                Manage your school, teachers, students and learning
+                activities from one unified platform.
+              </p>
 
-            <div className={styles.featureList}>
-              <div className={styles.featureItem}>
-                <span className={styles.featureIcon}>
-                  <FaShieldAlt />
-                </span>
+              {/* FEATURES */}
+              <div className={styles.featureList}>
+                <div className={styles.featureItem}>
+                  <span className={styles.featureIcon}>
+                    <FaShieldAlt />
+                  </span>
 
-                <span>Secure School Access</span>
-              </div>
+                  <span>Secure School Access</span>
+                </div>
 
-              <div className={styles.featureItem}>
-                <span className={styles.featureIcon}>
-                  <FaKey />
-                </span>
+                <div className={styles.featureItem}>
+                  <span className={styles.featureIcon}>
+                    <FaKey />
+                  </span>
 
-                <span>Protected Login</span>
-              </div>
+                  <span>Protected Login</span>
+                </div>
 
-              <div className={styles.featureItem}>
-                <span className={styles.featureIcon}>
-                  <FaSchool />
-                </span>
+                <div className={styles.featureItem}>
+                  <span className={styles.featureIcon}>
+                    <FaUsers />
+                  </span>
 
-                <span>Manage Your School</span>
+                  <span>Manage Your School</span>
+                </div>
               </div>
             </div>
           </div>
 
+          {/* DECORATIVE CIRCLES */}
           <div className={styles.cloudOne} />
           <div className={styles.cloudTwo} />
 
-          {/* <img
-            src="/school-campus.png"
-            alt="School campus"
-            className={styles.schoolImage}
-          /> */}
+          {/* SCHOOL IMAGE */}
+          <div className={styles.schoolImageWrapper}>
+            <img
+              src="/school-campus.jpg"
+              alt="School campus"
+              className={styles.schoolImage}
+            />
+          </div>
         </aside>
 
-        {/* RIGHT PANEL */}
+        {/* =====================================================
+            RIGHT FORM PANEL
+        ====================================================== */}
         <section className={styles.formPanel}>
           <div className={styles.formContainer}>
+            {/* FORM HEADING */}
             <div className={styles.formHeading}>
               <span className={styles.mobileLogo}>
                 <FaSchool />
@@ -148,20 +172,37 @@ export default function SchoolLoginPage() {
 
               <div>
                 <h2>School Login</h2>
-                <p>Enter your school credentials to continue.</p>
+
+                <p>
+                  Enter your school credentials to continue.
+                </p>
               </div>
             </div>
 
-            {error && <div className={styles.errorMessage}>{error}</div>}
-
-            {successMessage && (
-              <div className={styles.successMessage}>{successMessage}</div>
+            {/* ERROR */}
+            {error && (
+              <div className={styles.errorMessage}>
+                {error}
+              </div>
             )}
 
-            <form onSubmit={handleSubmit} className={styles.loginForm}>
+            {/* SUCCESS */}
+            {successMessage && (
+              <div className={styles.successMessage}>
+                {successMessage}
+              </div>
+            )}
+
+            {/* LOGIN FORM */}
+            <form
+              onSubmit={handleSubmit}
+              className={styles.loginForm}
+            >
               {/* SCHOOL ID */}
               <div className={styles.formGroup}>
-                <label htmlFor="schoolId">School ID</label>
+                <label htmlFor="schoolId">
+                  School ID
+                </label>
 
                 <div className={styles.inputWrapper}>
                   <FaSchool />
@@ -169,9 +210,11 @@ export default function SchoolLoginPage() {
                   <input
                     id="schoolId"
                     type="text"
-                    placeholder="Enter your School ID"
+                    placeholder="Enter your school ID"
                     value={schoolId}
-                    onChange={(event) => setSchoolId(event.target.value)}
+                    onChange={(event) =>
+                      setSchoolId(event.target.value)
+                    }
                     autoComplete="username"
                   />
                 </div>
@@ -179,22 +222,42 @@ export default function SchoolLoginPage() {
 
               {/* PASSWORD */}
               <div className={styles.formGroup}>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">
+                  Password
+                </label>
 
                 <div className={styles.inputWrapper}>
                   <FaKey />
 
                   <input
                     id="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
                     value={password}
-                    onChange={(event) => setPassword(event.target.value)}
+                    onChange={(event) =>
+                      setPassword(event.target.value)
+                    }
                     autoComplete="current-password"
                   />
+
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() =>
+                      setShowPassword((previous) => !previous)
+                    }
+                    aria-label={
+                      showPassword
+                        ? "Hide password"
+                        : "Show password"
+                    }
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
                 </div>
               </div>
 
+              {/* LOGIN BUTTON */}
               <button
                 type="submit"
                 className={styles.loginButton}
@@ -202,13 +265,20 @@ export default function SchoolLoginPage() {
               >
                 <FaShieldAlt />
 
-                <span>{isSubmitting ? "Logging in..." : "Login"}</span>
+                <span>
+                  {isSubmitting
+                    ? "Logging in..."
+                    : "Login"}
+                </span>
               </button>
             </form>
 
+            {/* REGISTER */}
             <p className={styles.registerText}>
               Don't have a school account?{" "}
-              <Link href="/school/register">Register your school</Link>
+              <Link href="/school/register">
+                Register your school
+              </Link>
             </p>
           </div>
         </section>

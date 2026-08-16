@@ -1,61 +1,106 @@
-
-/* login.module.css */
-
 /* =========================================================
-   COLOR THEME
-   Primary: Deep Green
-   Accent: Emerald
-   Background: Warm Off-White
-   Dark: Green-Black
+   NOIS SCHOOL LOGIN
+   Matches the reference design:
+   - Soft blue background
+   - Large centered card
+   - Larger NOIS logo
+   - Poppins-style Welcome Back
+   - Blue right panel
+   - Campus image positioned at bottom
+   - Clean professional UI
    ========================================================= */
+
+/* If using Next.js, add Poppins in your layout/global CSS:
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+*/
 
 .page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  width: 100%;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(190, 210, 245, 0.35),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(210, 225, 250, 0.4),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff 0%,
+      #f7faff 50%,
+      #edf4ff 100%
+    );
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  padding: 5rem 2rem;
+
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
 
 /* =========================================================
    BACK BUTTON
    ========================================================= */
 
 .backButton {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  position: fixed;
+
+  top: 1.2rem;
+  left: 1.2rem;
 
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
 
-  color: #166534;
+  color: #075985;
   text-decoration: none;
+
+  font-size: 0.85rem;
   font-weight: 600;
 
-  background: rgba(255, 255, 255, 0.8);
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.92);
 
-  border: 1px solid rgba(22, 101, 52, 0.15);
+  padding: 0.65rem 1.05rem;
 
-  box-shadow: 0 4px 12px rgba(20, 83, 45, 0.08);
+  border-radius: 10px;
 
-  transition: all 0.3s ease;
-  z-index: 10;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+
+  box-shadow:
+    0 5px 15px rgba(30, 64, 175, 0.08);
+
+  transition: all 0.25s ease;
+
+  z-index: 20;
 }
 
 .backButton:hover {
   background: #ffffff;
-  color: #14532d;
-  transform: translateX(-3px);
-  box-shadow: 0 6px 16px rgba(20, 83, 45, 0.14);
+  color: #075985;
+
+  transform: translateX(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(30, 64, 175, 0.13);
 }
+
 
 /* =========================================================
    MAIN LOGIN CARD
@@ -63,145 +108,215 @@
 
 .loginCard {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+
+  grid-template-columns: 1fr 1fr;
 
   width: 100%;
-  max-width: 1000px;
+  max-width: 1080px;
+
+  min-height: 690px;
 
   background: #ffffff;
 
-  border-radius: 24px;
-
-  box-shadow:
-    0 25px 50px rgba(20, 83, 45, 0.14),
-    0 8px 20px rgba(20, 83, 45, 0.06);
+  border-radius: 22px;
 
   overflow: hidden;
+
   position: relative;
+
   z-index: 2;
+
+  box-shadow:
+    0 30px 70px rgba(30, 64, 175, 0.12),
+    0 10px 30px rgba(30, 64, 175, 0.08);
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
 }
+
 
 /* =========================================================
    LEFT INFORMATION PANEL
    ========================================================= */
 
 .informationPanel {
-  background: linear-gradient(
-    145deg,
-    #f0fdf4 0%,
-    #ecfdf5 55%,
-    #dcfce7 100%
-  );
+  position: relative;
 
-  color: #14532d;
+  overflow: hidden;
 
-  padding: 3rem 2.5rem;
+  padding: 3.5rem 3.5rem 0;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
-  position: relative;
-  overflow: hidden;
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #f1f7ff 58%,
+      #e7f0ff 100%
+    );
 
-  border-right: 1px solid #d1fae5;
+  color: #0b315f;
+
+  border-right: 1px solid #dbe7f7;
 }
 
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
 .logoSection {
-  margin-bottom: 2rem;
+  position: relative;
+
+  z-index: 5;
+
+  margin-bottom: 0.1rem;
 }
 
 .logoImage {
-  max-height: 75px;
-  width: auto;
-  display: block;
+  width: 280px;
+  height: auto;
+
+  max-height: none;
+
   object-fit: contain;
+
+  display: block;
 }
+
 
 /* =========================================================
    INFORMATION CONTENT
    ========================================================= */
 
+.informationContent {
+  position: relative;
+
+  z-index: 6;
+
+  max-width: 470px;
+}
+
 .informationContent h1 {
-  font-size: 2.2rem;
-  line-height: 1.2;
+  margin: 0 0 1.1rem;
+
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 3.25rem;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.5px;
+
   font-weight: 800;
 
-  color: #14532d;
-
-  margin-bottom: 1rem;
+  color: #0b315f;
 }
 
 .exceptionalText {
-  color: #15803d;
+  color: #1769e0;
 }
+
+
+/* =========================================================
+   BLUE HEADING LINE
+   ========================================================= */
 
 .headingLine {
-  width: 50px;
+  width: 68px;
   height: 4px;
 
-  background: linear-gradient(
-    90deg,
-    #166534,
-    #22c55e
-  );
+  background: #1769e0;
 
-  border-radius: 2px;
+  border-radius: 5px;
 
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.7rem;
 }
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
 
 .introduction {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  max-width: 430px;
 
-  color: #4b6354;
+  margin: 0 0 2rem;
 
-  margin-bottom: 2rem;
+  font-size: 0.96rem;
+
+  line-height: 1.7;
+
+  color: #526b89;
+
+  font-weight: 400;
 }
+
 
 /* =========================================================
    FEATURE LIST
    ========================================================= */
 
 .featureList {
+  position: relative;
+
+  z-index: 10;
+
   display: flex;
+
   flex-direction: column;
-  gap: 1rem;
+
+  gap: 0.8rem;
+
+  max-width: 420px;
 }
 
 .featureItem {
   display: flex;
+
   align-items: center;
-  gap: 0.8rem;
 
-  font-size: 0.95rem;
-  font-weight: 500;
+  gap: 0.85rem;
 
-  color: #365443;
-}
-
-.featureIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  height: 32px;
-
-  background: #dcfce7;
-
-  border-radius: 8px;
-
-  color: #15803d;
+  color: #14385f;
 
   font-size: 0.9rem;
 
-  border: 1px solid #bbf7d0;
+  font-weight: 500;
 }
 
+.featureIcon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 10px;
+
+  color: #1769e0;
+
+  font-size: 0.9rem;
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.08);
+}
+
+
 /* =========================================================
-   DECORATIVE BACKGROUND ELEMENTS
+   DECORATIVE CIRCLES
    ========================================================= */
 
 .cloudOne,
@@ -210,45 +325,142 @@
 
   border-radius: 50%;
 
-  background: rgba(34, 197, 94, 0.07);
-
   pointer-events: none;
+
+  z-index: 1;
 }
 
 .cloudOne {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
 
-  top: -50px;
-  right: -50px;
+  top: -90px;
+  right: -45px;
+
+  background: rgba(96, 165, 250, 0.13);
 }
 
 .cloudTwo {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
 
-  bottom: -30px;
-  left: -30px;
+  bottom: -90px;
+  left: -60px;
+
+  background: rgba(96, 165, 250, 0.08);
 }
+
+
+/* =========================================================
+   SCHOOL CAMPUS IMAGE
+   IMPORTANT:
+   Image stays DOWN so text remains clearly visible.
+   ========================================================= */
+
+.schoolImage {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: 0;
+
+  width: 100%;
+
+  height: 245px;
+
+  object-fit: cover;
+
+  object-position: center bottom;
+
+  opacity: 0.48;
+
+  z-index: 2;
+
+  /* Smoothly fades image into panel */
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 15%,
+      rgba(0, 0, 0, 0.8) 42%,
+      #000 72%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 15%,
+      rgba(0, 0, 0, 0.8) 42%,
+      #000 72%
+    );
+
+  filter:
+    saturate(0.85)
+    brightness(1.05);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+   Keeps image subtle and prevents it competing with text.
+   ========================================================= */
+
+.informationPanel::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 270px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(239, 246, 255, 0) 0%,
+      rgba(239, 246, 255, 0.15) 25%,
+      rgba(239, 246, 255, 0.3) 55%,
+      rgba(239, 246, 255, 0.5) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
 
 /* =========================================================
    RIGHT FORM PANEL
+   BLUISH SHADE
    ========================================================= */
 
 .formPanel {
-  padding: 3rem 2.5rem;
+  padding: 4rem 4.5rem;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  background: #ffffff;
+  background:
+    linear-gradient(
+      145deg,
+      #f8fbff 0%,
+      #eef5ff 100%
+    );
 }
 
 .formContainer {
   width: 100%;
-  max-width: 380px;
+
+  max-width: 440px;
 }
+
 
 /* =========================================================
    FORM HEADING
@@ -256,220 +468,249 @@
 
 .formHeading {
   display: flex;
-  align-items: center;
+
+  align-items: flex-start;
+
   gap: 1rem;
 
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .mobileLogo {
   display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 48px;
-  height: 48px;
-
-  background: #ecfdf5;
-
-  color: #166534;
-
-  border-radius: 12px;
-
-  font-size: 1.2rem;
-
-  border: 1px solid #d1fae5;
 }
 
 .formHeading h2 {
-  font-size: 1.7rem;
+  margin: 0 0 0.35rem;
+
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 2rem;
+
+  line-height: 1.2;
+
   font-weight: 700;
 
-  color: #14532d;
+  letter-spacing: -0.5px;
 
-  margin-bottom: 0.3rem;
+  color: #0b315f;
 }
 
 .formHeading p {
+  margin: 0;
+
   font-size: 0.85rem;
 
-  color: #64748b;
+  color: #607895;
 }
+
 
 /* =========================================================
    MESSAGES
    ========================================================= */
 
 .errorMessage {
-  background-color: #fef2f2;
+  background: #fff1f2;
 
-  color: #b91c1c;
+  color: #be123c;
 
   padding: 0.8rem 1rem;
 
-  border-radius: 8px;
+  border-radius: 9px;
 
-  font-size: 0.85rem;
+  font-size: 0.84rem;
 
   margin-bottom: 1.2rem;
 
-  border-left: 4px solid #ef4444;
+  border-left: 4px solid #e11d48;
 }
 
 .successMessage {
-  background-color: #f0fdf4;
+  background: #effdf5;
 
-  color: #15803d;
+  color: #047857;
 
   padding: 0.8rem 1rem;
 
-  border-radius: 8px;
+  border-radius: 9px;
 
-  font-size: 0.85rem;
+  font-size: 0.84rem;
 
   margin-bottom: 1.2rem;
 
-  border-left: 4px solid #22c55e;
+  border-left: 4px solid #10b981;
 }
 
+
 /* =========================================================
-   FORM ELEMENTS
+   FORM
    ========================================================= */
 
 .loginForm {
   display: flex;
+
   flex-direction: column;
-  gap: 1.2rem;
+
+  gap: 1.25rem;
 }
 
 .formGroup {
   display: flex;
+
   flex-direction: column;
-  gap: 0.4rem;
+
+  gap: 0.5rem;
 }
 
 .formGroup label {
-  font-size: 0.85rem;
+  font-size: 0.83rem;
+
   font-weight: 600;
 
-  color: #365443;
+  color: #0f3158;
 }
 
+
 /* =========================================================
-   INPUTS
+   INPUT
    ========================================================= */
 
 .inputWrapper {
   display: flex;
+
   align-items: center;
 
   gap: 0.8rem;
 
-  background: #f8fafc;
-
-  border: 1.5px solid #d1d5db;
-
-  border-radius: 10px;
+  height: 48px;
 
   padding: 0 0.9rem;
 
-  transition: all 0.3s ease;
+  background: #ffffff;
+
+  border: 1.5px solid #cbdaf0;
+
+  border-radius: 9px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
 .inputWrapper svg {
-  color: #15803d;
+  flex-shrink: 0;
 
-  font-size: 0.95rem;
+  color: #1769e0;
 
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
 }
 
 .inputWrapper input {
   width: 100%;
 
-  padding: 0.75rem 0;
+  height: 100%;
+
+  padding: 0;
 
   border: none;
 
+  outline: none;
+
   background: transparent;
 
-  font-size: 0.95rem;
+  color: #102d4d;
 
-  color: #1f2937;
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
 
-  outline: none;
+  font-size: 0.88rem;
 }
 
 .inputWrapper input::placeholder {
-  color: #94a3b8;
+  color: #8ca0b8;
 }
 
 .inputWrapper:focus-within {
-  border-color: #16a34a;
+  border-color: #4f8df7;
 
   background: #ffffff;
 
   box-shadow:
-    0 0 0 4px rgba(34, 197, 94, 0.12);
+    0 0 0 4px rgba(37, 99, 235, 0.09);
 }
 
 .inputWrapper:focus-within svg {
-  color: #166534;
+  color: #1558c0;
 }
+
 
 /* =========================================================
    LOGIN BUTTON
    ========================================================= */
 
 .loginButton {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 0.45rem;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 0.6rem;
 
-  width: 100%;
+  border: none;
 
-  padding: 0.85rem;
+  border-radius: 9px;
 
-  margin-top: 0.5rem;
-
-  background: linear-gradient(
-    135deg,
-    #166534 0%,
-    #15803d 100%
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #1769e0 0%,
+      #0756d8 100%
+    );
 
   color: #ffffff;
 
-  border: none;
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
 
-  border-radius: 10px;
-
-  font-size: 1rem;
+  font-size: 0.9rem;
 
   font-weight: 600;
 
   cursor: pointer;
 
   box-shadow:
-    0 4px 12px rgba(22, 101, 52, 0.25);
+    0 7px 18px rgba(37, 99, 235, 0.22);
 
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .loginButton:hover:not(:disabled) {
-  background: linear-gradient(
-    135deg,
-    #14532d 0%,
-    #166534 100%
-  );
+  transform: translateY(-1px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #155dcc 0%,
+      #064ac0 100%
+    );
 
   box-shadow:
-    0 6px 18px rgba(22, 101, 52, 0.32);
-
-  transform: translateY(-1px);
+    0 10px 22px rgba(37, 99, 235, 0.28);
 }
 
 .loginButton:active:not(:disabled) {
@@ -477,9 +718,11 @@
 }
 
 .loginButton:disabled {
-  opacity: 0.7;
+  opacity: 0.65;
+
   cursor: not-allowed;
 }
+
 
 /* =========================================================
    REGISTER TEXT
@@ -488,54 +731,86 @@
 .registerText {
   text-align: center;
 
-  font-size: 0.85rem;
+  margin-top: 1.4rem;
 
-  color: #64748b;
+  font-size: 0.8rem;
 
-  margin-top: 1.5rem;
+  color: #657b96;
 }
 
 .registerText a {
-  color: #15803d;
-
-  text-decoration: none;
+  color: #075dcc;
 
   font-weight: 600;
+
+  text-decoration: none;
 
   transition: color 0.2s ease;
 }
 
 .registerText a:hover {
-  color: #14532d;
+  color: #0647a8;
 
   text-decoration: underline;
 }
 
+
 /* =========================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE
    ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .page {
-    padding: 1rem;
-
-    align-items: stretch;
-
-    background: linear-gradient(
-      135deg,
-      #ecfdf5 0%,
-      #d1fae5 100%
-    );
+    padding: 5rem 1.5rem 2rem;
   }
 
   .loginCard {
-    grid-template-columns: 1fr;
+    max-width: 800px;
 
-    max-width: 450px;
+    min-height: 620px;
+  }
 
-    margin: 0 auto;
+  .informationPanel {
+    padding: 3rem 2.5rem 0;
+  }
 
-    border-radius: 16px;
+  .formPanel {
+    padding: 3rem 2.5rem;
+  }
+
+  .informationContent h1 {
+    font-size: 2.7rem;
+  }
+
+  .logoImage {
+    width: 140px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .page {
+    min-height: 100vh;
+
+    padding: 5rem 1rem 1.5rem;
+
+    align-items: flex-start;
+  }
+
+  .loginCard {
+    display: block;
+
+    width: 100%;
+
+    max-width: 480px;
+
+    min-height: auto;
+
+    border-radius: 18px;
   }
 
   .informationPanel {
@@ -543,20 +818,47 @@
   }
 
   .formPanel {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
+
+    background:
+      linear-gradient(
+        145deg,
+        #f8fbff,
+        #eef5ff
+      );
+  }
+
+  .formContainer {
+    max-width: 100%;
   }
 
   .mobileLogo {
     display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    background: #e8f1ff;
+
+    border-radius: 10px;
+
+    color: #1769e0;
+  }
+
+  .formHeading h2 {
+    font-size: 1.65rem;
   }
 
   .backButton {
     top: 1rem;
     left: 1rem;
 
-    padding: 0.4rem 0.9rem;
-
-    font-size: 0.85rem;
+    padding: 0.55rem 0.9rem;
   }
 }
-

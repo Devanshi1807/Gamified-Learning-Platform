@@ -1,164 +1,184 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+/* =========================================================
+   NOIS SCHOOL LOGIN
+   Matches the reference design:
+   - Soft blue background
+   - Large centered card
+   - Larger NOIS logo
+   - Poppins-style Welcome Back
+   - Blue right panel
+   - Campus image positioned at bottom
+   - Clean professional UI
+   ========================================================= */
 
-/* =========================
-   PAGE
-========================= */
+/* If using Next.js, add Poppins in your layout/global CSS:
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+*/
 
 .page {
   min-height: 100vh;
   width: 100%;
+
   background:
-    radial-gradient(circle at 8% 10%, rgba(72, 187, 120, 0.12), transparent 28%),
-    radial-gradient(circle at 92% 85%, rgba(99, 102, 241, 0.10), transparent 30%),
-    #f7faf9;
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(190, 210, 245, 0.35),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(210, 225, 250, 0.4),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff 0%,
+      #f7faff 50%,
+      #edf4ff 100%
+    );
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 70px 24px 40px;
+  padding: 5rem 2rem;
 
-  font-family: "DM Sans", sans-serif;
-  color: #17211d;
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
 
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 
-/* =========================
+/* =========================================================
    BACK BUTTON
-========================= */
+   ========================================================= */
 
 .backButton {
-  position: absolute;
-  top: 26px;
-  left: 30px;
+  position: fixed;
 
-  display: inline-flex;
+  top: 1.2rem;
+  left: 1.2rem;
+
+  display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 0.55rem;
 
-  color: #52605a;
+  color: #075985;
   text-decoration: none;
 
-  font-size: 14px;
+  font-size: 0.85rem;
   font-weight: 600;
 
-  padding: 9px 14px;
+  background: rgba(255, 255, 255, 0.92);
+
+  padding: 0.65rem 1.05rem;
+
   border-radius: 10px;
 
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+
+  box-shadow:
+    0 5px 15px rgba(30, 64, 175, 0.08);
+
+  transition: all 0.25s ease;
+
+  z-index: 20;
 }
 
 .backButton:hover {
-  background: #e9f5ef;
-  color: #159447;
+  background: #ffffff;
+  color: #075985;
+
   transform: translateX(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(30, 64, 175, 0.13);
 }
 
 
-/* =========================
-   MAIN CARD
-========================= */
+/* =========================================================
+   MAIN LOGIN CARD
+   ========================================================= */
 
 .loginCard {
-  width: min(1120px, 100%);
-  min-height: 650px;
-
   display: grid;
-  grid-template-columns: 47% 53%;
+
+  grid-template-columns: 1fr 1fr;
+
+  width: 100%;
+  max-width: 1080px;
+
+  min-height: 690px;
 
   background: #ffffff;
 
-  border: 1px solid #e5ece8;
-  border-radius: 28px;
-
-  box-shadow:
-    0 30px 70px rgba(29, 52, 43, 0.10),
-    0 8px 25px rgba(29, 52, 43, 0.05);
+  border-radius: 22px;
 
   overflow: hidden;
 
   position: relative;
+
+  z-index: 2;
+
+  box-shadow:
+    0 30px 70px rgba(30, 64, 175, 0.12),
+    0 10px 30px rgba(30, 64, 175, 0.08);
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
 }
 
 
-/* =========================
+/* =========================================================
    LEFT INFORMATION PANEL
-========================= */
+   ========================================================= */
 
 .informationPanel {
   position: relative;
 
-  padding: 46px 52px;
+  overflow: hidden;
+
+  padding: 3.5rem 3.5rem 0;
+
+  display: flex;
+  flex-direction: column;
 
   background:
     linear-gradient(
       145deg,
-      #effbf4 0%,
-      #e8f8f0 48%,
-      #f1f8ff 100%
+      #ffffff 0%,
+      #f1f7ff 58%,
+      #e7f0ff 100%
     );
 
-  overflow: hidden;
+  color: #0b315f;
 
-  display: flex;
-  flex-direction: column;
+  border-right: 1px solid #dbe7f7;
 }
 
 
-/* Decorative circles */
-
-.informationPanel::before {
-  content: "";
-  position: absolute;
-
-  width: 260px;
-  height: 260px;
-
-  border-radius: 50%;
-
-  background: rgba(72, 187, 120, 0.10);
-
-  top: -110px;
-  right: -90px;
-}
-
-.informationPanel::after {
-  content: "";
-  position: absolute;
-
-  width: 190px;
-  height: 190px;
-
-  border-radius: 50%;
-
-  background: rgba(99, 102, 241, 0.08);
-
-  bottom: -80px;
-  left: -70px;
-}
-
-
-/* =========================
+/* =========================================================
    LOGO
-========================= */
+   ========================================================= */
 
 .logoSection {
   position: relative;
-  z-index: 3;
 
-  display: flex;
-  align-items: center;
+  z-index: 5;
+
+  margin-bottom: 0.1rem;
 }
 
 .logoImage {
-  width: 112px;
+  width: 240px;
   height: auto;
+
+  max-height: none;
 
   object-fit: contain;
 
@@ -166,419 +186,531 @@
 }
 
 
-/* =========================
-   LEFT CONTENT
-========================= */
+/* =========================================================
+   INFORMATION CONTENT
+   ========================================================= */
 
 .informationContent {
   position: relative;
-  z-index: 3;
 
-  margin-top: 72px;
+  z-index: 6;
 
-  max-width: 430px;
+  max-width: 470px;
 }
 
 .informationContent h1 {
-  margin: 0;
+  margin: 0 0 1.1rem;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
 
-  font-size: clamp(42px, 4vw, 62px);
-  line-height: 1.02;
+  font-size: 3.25rem;
 
-  letter-spacing: -2.5px;
+  line-height: 1.05;
 
-  color: #18251f;
+  letter-spacing: -1.5px;
+
+  font-weight: 800;
+
+  color: #0b315f;
 }
 
-.highlightText {
-  color: #159447;
+.exceptionalText {
+  color: #1769e0;
 }
 
 
-/* Accent line */
+/* =========================================================
+   BLUE HEADING LINE
+   ========================================================= */
 
 .headingLine {
-  width: 62px;
-  height: 5px;
+  width: 68px;
+  height: 4px;
 
-  margin: 24px 0 22px;
+  background: #1769e0;
 
-  border-radius: 10px;
+  border-radius: 5px;
 
-  background: linear-gradient(
-    90deg,
-    #159447,
-    #45c47a
-  );
+  margin-bottom: 1.7rem;
 }
 
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
 
 .introduction {
-  max-width: 390px;
+  max-width: 430px;
 
-  margin: 0;
+  margin: 0 0 2rem;
 
-  color: #617069;
+  font-size: 0.96rem;
 
-  font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.7;
+
+  color: #526b89;
+
+  font-weight: 400;
 }
 
 
-/* =========================
-   FEATURES
-========================= */
+/* =========================================================
+   FEATURE LIST
+   ========================================================= */
 
 .featureList {
+  position: relative;
+
+  z-index: 10;
+
   display: flex;
+
   flex-direction: column;
 
-  gap: 15px;
+  gap: 0.8rem;
 
-  margin-top: 34px;
+  max-width: 420px;
 }
 
 .featureItem {
   display: flex;
+
   align-items: center;
-  gap: 13px;
 
-  color: #34443d;
+  gap: 0.85rem;
 
-  font-size: 14px;
-  font-weight: 600;
+  color: #14385f;
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
 }
 
 .featureIcon {
   width: 38px;
   height: 38px;
 
+  flex-shrink: 0;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.95);
 
-  background: #ffffff;
+  border: 1px solid #dbeafe;
 
-  color: #159447;
+  border-radius: 10px;
+
+  color: #1769e0;
+
+  font-size: 0.9rem;
 
   box-shadow:
-    0 5px 15px rgba(25, 80, 54, 0.08);
-
-  flex-shrink: 0;
+    0 4px 10px rgba(37, 99, 235, 0.08);
 }
 
 
-/* =========================
-   DECORATIVE CLOUDS
-========================= */
+/* =========================================================
+   DECORATIVE CIRCLES
+   ========================================================= */
 
 .cloudOne,
 .cloudTwo {
   position: absolute;
 
-  border-radius: 999px;
+  border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.75);
+  pointer-events: none;
 
   z-index: 1;
 }
 
 .cloudOne {
   width: 190px;
-  height: 55px;
+  height: 190px;
 
-  bottom: 45px;
-  left: 80px;
+  top: -90px;
+  right: -45px;
 
-  transform: rotate(-4deg);
+  background: rgba(96, 165, 250, 0.13);
 }
 
 .cloudTwo {
-  width: 130px;
-  height: 42px;
+  width: 160px;
+  height: 160px;
 
-  bottom: 85px;
-  left: 205px;
+  bottom: -90px;
+  left: -60px;
 
-  transform: rotate(5deg);
+  background: rgba(96, 165, 250, 0.08);
 }
 
 
-/* =========================
-   SCHOOL IMAGE
-========================= */
+/* =========================================================
+   SCHOOL CAMPUS IMAGE
+   IMPORTANT:
+   Image stays DOWN so text remains clearly visible.
+   ========================================================= */
 
 .schoolImage {
   position: absolute;
 
-  z-index: 2;
+  left: 0;
+  right: 0;
 
-  width: 235px;
-  height: auto;
-
-  right: 24px;
   bottom: 0;
 
-  object-fit: contain;
+  width: 100%;
+
+  height: 245px;
+
+  object-fit: cover;
+
+  object-position: center bottom;
+
+  opacity: 0.48;
+
+  z-index: 2;
+
+  /* Smoothly fades image into panel */
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 15%,
+      rgba(0, 0, 0, 0.8) 42%,
+      #000 72%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 15%,
+      rgba(0, 0, 0, 0.8) 42%,
+      #000 72%
+    );
 
   filter:
-    drop-shadow(0 15px 20px rgba(40, 70, 55, 0.12));
+    saturate(0.85)
+    brightness(1.05);
 }
 
 
-/* =========================
+/* =========================================================
+   IMAGE OVERLAY
+   Keeps image subtle and prevents it competing with text.
+   ========================================================= */
+
+.informationPanel::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 270px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(239, 246, 255, 0) 0%,
+      rgba(239, 246, 255, 0.15) 25%,
+      rgba(239, 246, 255, 0.3) 55%,
+      rgba(239, 246, 255, 0.5) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
    RIGHT FORM PANEL
-========================= */
+   BLUISH SHADE
+   ========================================================= */
 
 .formPanel {
-  background: #ffffff;
+  padding: 4rem 4.5rem;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  padding: 55px 70px;
+  background:
+    linear-gradient(
+      145deg,
+      #f8fbff 0%,
+      #eef5ff 100%
+    );
 }
 
 .formContainer {
   width: 100%;
+
   max-width: 440px;
 }
 
 
-/* =========================
+/* =========================================================
    FORM HEADING
-========================= */
+   ========================================================= */
 
 .formHeading {
   display: flex;
-  align-items: center;
 
-  gap: 15px;
+  align-items: flex-start;
 
-  margin-bottom: 36px;
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.mobileLogo {
+  display: none;
 }
 
 .formHeading h2 {
-  margin: 0;
+  margin: 0 0 0.35rem;
 
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
 
-  color: #18251f;
+  font-size: 2rem;
 
-  font-size: 29px;
-  font-weight: 800;
+  line-height: 1.2;
 
-  letter-spacing: -0.8px;
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+
+  color: #0b315f;
 }
 
 .formHeading p {
-  margin: 7px 0 0;
+  margin: 0;
 
-  color: #7a8781;
+  font-size: 0.85rem;
 
-  font-size: 14px;
-  line-height: 1.5;
+  color: #607895;
 }
 
 
-/* Mobile icon */
+/* =========================================================
+   MESSAGES
+   ========================================================= */
 
-.mobileLogo {
-  width: 48px;
-  height: 48px;
+.errorMessage {
+  background: #fff1f2;
 
-  display: none;
+  color: #be123c;
 
-  align-items: center;
-  justify-content: center;
+  padding: 0.8rem 1rem;
 
-  border-radius: 14px;
+  border-radius: 9px;
 
-  color: #159447;
+  font-size: 0.84rem;
 
-  background: #eaf8ef;
+  margin-bottom: 1.2rem;
 
-  font-size: 19px;
+  border-left: 4px solid #e11d48;
+}
+
+.successMessage {
+  background: #effdf5;
+
+  color: #047857;
+
+  padding: 0.8rem 1rem;
+
+  border-radius: 9px;
+
+  font-size: 0.84rem;
+
+  margin-bottom: 1.2rem;
+
+  border-left: 4px solid #10b981;
 }
 
 
-/* =========================
+/* =========================================================
    FORM
-========================= */
+   ========================================================= */
 
 .loginForm {
   display: flex;
+
   flex-direction: column;
 
-  gap: 22px;
+  gap: 1.25rem;
 }
 
 .formGroup {
   display: flex;
+
   flex-direction: column;
 
-  gap: 9px;
+  gap: 0.5rem;
 }
 
 .formGroup label {
-  color: #34433c;
+  font-size: 0.83rem;
 
-  font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
+
+  color: #0f3158;
 }
 
 
-/* =========================
+/* =========================================================
    INPUT
-========================= */
+   ========================================================= */
 
 .inputWrapper {
-  height: 55px;
-
   display: flex;
+
   align-items: center;
 
-  gap: 13px;
+  gap: 0.8rem;
 
-  padding: 0 16px;
+  height: 48px;
 
-  border: 1.5px solid #dfe8e3;
-  border-radius: 13px;
+  padding: 0 0.9rem;
 
-  background: #fbfdfc;
+  background: #ffffff;
+
+  border: 1.5px solid #cbdaf0;
+
+  border-radius: 9px;
 
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
 .inputWrapper svg {
-  color: #7b8a83;
-
-  font-size: 16px;
-
   flex-shrink: 0;
 
-  transition: color 0.2s ease;
-}
+  color: #1769e0;
 
-.inputWrapper:focus-within {
-  background: #ffffff;
-
-  border-color: #32aa67;
-
-  box-shadow:
-    0 0 0 4px rgba(50, 170, 103, 0.10);
-}
-
-.inputWrapper:focus-within svg {
-  color: #159447;
+  font-size: 0.9rem;
 }
 
 .inputWrapper input {
   width: 100%;
 
+  height: 100%;
+
+  padding: 0;
+
   border: none;
+
   outline: none;
 
   background: transparent;
 
-  color: #18251f;
+  color: #102d4d;
 
-  font-family: "DM Sans", sans-serif;
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
 
-  font-size: 14px;
+  font-size: 0.88rem;
 }
 
 .inputWrapper input::placeholder {
-  color: #a1aca7;
+  color: #8ca0b8;
+}
+
+.inputWrapper:focus-within {
+  border-color: #4f8df7;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.09);
+}
+
+.inputWrapper:focus-within svg {
+  color: #1558c0;
 }
 
 
-/* =========================
-   FORGOT PASSWORD
-========================= */
-
-.forgotPassword {
-  display: flex;
-  justify-content: flex-end;
-
-  margin-top: -8px;
-}
-
-.forgotPassword a {
-  color: #159447;
-
-  font-size: 13px;
-  font-weight: 700;
-
-  text-decoration: none;
-
-  transition: color 0.2s ease;
-}
-
-.forgotPassword a:hover {
-  color: #0d7136;
-  text-decoration: underline;
-}
-
-
-/* =========================
+/* =========================================================
    LOGIN BUTTON
-========================= */
+   ========================================================= */
 
 .loginButton {
   width: 100%;
-  height: 56px;
+
+  height: 48px;
+
+  margin-top: 0.45rem;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  gap: 10px;
-
-  margin-top: 5px;
+  gap: 0.6rem;
 
   border: none;
-  border-radius: 13px;
 
-  background: linear-gradient(
-    135deg,
-    #159447,
-    #28b865
-  );
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1769e0 0%,
+      #0756d8 100%
+    );
 
   color: #ffffff;
 
-  font-family: "DM Sans", sans-serif;
+  font-family:
+    "Poppins",
+    "Segoe UI",
+    sans-serif;
 
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 0.9rem;
+
+  font-weight: 600;
 
   cursor: pointer;
 
   box-shadow:
-    0 9px 22px rgba(21, 148, 71, 0.20);
+    0 7px 18px rgba(37, 99, 235, 0.22);
 
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    filter 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .loginButton:hover:not(:disabled) {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #155dcc 0%,
+      #064ac0 100%
+    );
 
   box-shadow:
-    0 13px 28px rgba(21, 148, 71, 0.27);
-
-  filter: brightness(1.02);
+    0 10px 22px rgba(37, 99, 235, 0.28);
 }
 
 .loginButton:active:not(:disabled) {
@@ -589,120 +721,84 @@
   opacity: 0.65;
 
   cursor: not-allowed;
-
-  box-shadow: none;
 }
 
 
-/* =========================
-   ERROR MESSAGE
-========================= */
+/* =========================================================
+   REGISTER TEXT
+   ========================================================= */
 
-.errorMessage {
-  margin-bottom: 20px;
+.registerText {
+  text-align: center;
 
-  padding: 13px 15px;
+  margin-top: 1.4rem;
 
-  border-radius: 11px;
+  font-size: 0.8rem;
 
-  background: #fff2f2;
+  color: #657b96;
+}
 
-  border: 1px solid #ffd6d6;
-
-  color: #c03939;
-
-  font-size: 13px;
-  line-height: 1.5;
+.registerText a {
+  color: #075dcc;
 
   font-weight: 600;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.registerText a:hover {
+  color: #0647a8;
+
+  text-decoration: underline;
 }
 
 
-/* =========================
-   HELP TEXT
-========================= */
-
-.helpText {
-  margin: 28px 0 0;
-
-  color: #87928d;
-
-  font-size: 12.5px;
-
-  line-height: 1.7;
-
-  text-align: center;
-}
-
-.helpText::first-line {
-  color: #6d7973;
-}
-
-
-/* =========================
-   TABLET
-========================= */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 900px) {
   .page {
-    padding: 80px 20px 30px;
+    padding: 5rem 1.5rem 2rem;
   }
 
   .loginCard {
-    grid-template-columns: 42% 58%;
-    min-height: 600px;
+    max-width: 800px;
+
+    min-height: 620px;
   }
 
   .informationPanel {
-    padding: 40px 35px;
-  }
-
-  .informationContent {
-    margin-top: 60px;
-  }
-
-  .informationContent h1 {
-    font-size: 43px;
-    letter-spacing: -1.8px;
-  }
-
-  .introduction {
-    font-size: 14px;
-  }
-
-  .featureItem {
-    font-size: 13px;
-  }
-
-  .schoolImage {
-    width: 185px;
-    right: 5px;
+    padding: 3rem 2.5rem 0;
   }
 
   .formPanel {
-    padding: 45px 45px;
+    padding: 3rem 2.5rem;
+  }
+
+  .informationContent h1 {
+    font-size: 2.7rem;
+  }
+
+  .logoImage {
+    width: 140px;
   }
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+   ========================================================= */
 
 @media (max-width: 700px) {
   .page {
     min-height: 100vh;
 
-    padding: 80px 16px 30px;
-
-    overflow: auto;
+    padding: 5rem 1rem 1.5rem;
 
     align-items: flex-start;
-  }
-
-  .backButton {
-    top: 20px;
-    left: 18px;
   }
 
   .loginCard {
@@ -710,116 +806,59 @@
 
     width: 100%;
 
+    max-width: 480px;
+
     min-height: auto;
 
-    border-radius: 22px;
+    border-radius: 18px;
   }
-
-  /* Hide decorative desktop panel */
 
   .informationPanel {
     display: none;
   }
 
   .formPanel {
-    width: 100%;
+    padding: 2.5rem 1.5rem;
 
-    padding: 38px 24px 32px;
+    background:
+      linear-gradient(
+        145deg,
+        #f8fbff,
+        #eef5ff
+      );
   }
 
   .formContainer {
-    max-width: none;
+    max-width: 100%;
   }
 
   .mobileLogo {
     display: flex;
-  }
 
-  .formHeading {
-    margin-bottom: 30px;
-  }
+    align-items: center;
 
-  .formHeading h2 {
-    font-size: 25px;
-  }
+    justify-content: center;
 
-  .formHeading p {
-    font-size: 13px;
-  }
+    width: 45px;
+    height: 45px;
 
-  .inputWrapper {
-    height: 53px;
-  }
-}
+    flex-shrink: 0;
 
+    background: #e8f1ff;
 
-/* =========================
-   SMALL MOBILE
-========================= */
+    border-radius: 10px;
 
-@media (max-width: 420px) {
-  .page {
-    padding: 75px 12px 20px;
-  }
-
-  .formPanel {
-    padding: 30px 19px 28px;
-  }
-
-  .loginCard {
-    border-radius: 18px;
-  }
-
-  .formHeading {
-    gap: 12px;
-  }
-
-  .mobileLogo {
-    width: 43px;
-    height: 43px;
-
-    border-radius: 12px;
-
-    font-size: 17px;
+    color: #1769e0;
   }
 
   .formHeading h2 {
-    font-size: 22px;
+    font-size: 1.65rem;
   }
 
-  .formHeading p {
-    font-size: 12px;
-  }
+  .backButton {
+    top: 1rem;
+    left: 1rem;
 
-  .loginForm {
-    gap: 19px;
-  }
-
-  .inputWrapper {
-    height: 51px;
-
-    padding: 0 14px;
-  }
-
-  .loginButton {
-    height: 53px;
-  }
-
-  .helpText {
-    font-size: 12px;
+    padding: 0.55rem 0.9rem;
   }
 }
-
-
-/* =========================
-   ACCESSIBILITY
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .backButton,
-  .inputWrapper,
-  .loginButton {
-    transition: none;
-  }
-}
-
