@@ -37,6 +37,9 @@ export async function POST(request: Request) {
       [schoolId]
     );
 
+    console.log("LOGIN SCHOOL ID:", schoolId);
+    console.log("SCHOOL FOUND:", result.rows.length);
+
     // 3. Don't reveal whether the School ID exists
     if (result.rows.length === 0) {
       return NextResponse.json(
@@ -49,6 +52,8 @@ export async function POST(request: Request) {
     }
 
     const school = result.rows[0];
+
+    console.log("PASSWORD HASH EXISTS:", !!school.password_hash);
 
     // 4. Verify password
     const passwordMatches = await bcrypt.compare(

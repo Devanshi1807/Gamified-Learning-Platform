@@ -1,47 +1,24 @@
-// import { NextResponse } from "next/server";
-// import pool from "@/lib/db";
-
-// export async function GET() {
-//   try {
-//     const result = await pool.query("SELECT NOW()");
-
-//     return NextResponse.json({
-//       success: true,
-//       message: "Database connected successfully!",
-//       time: result.rows[0].now,
-//     });
-//   } catch (error) {
-//     console.error("Database connection error:", error);
-
-//     return NextResponse.json(
-//       {
-//         success: false,
-//         message: "Database connection failed",
-//       },
-//       { status: 500 }
-//     );
-//   }
-// }
-
-
-
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
 
 export async function GET() {
-  console.log("DATABASE_URL exists:", !!process.env.DATABASE_URL);
-  console.log(
-    "DATABASE_URL length:",
-    process.env.DATABASE_URL?.length
-  );
-
   try {
-    const result = await pool.query("SELECT NOW()");
+    // Check which PostgreSQL database we're connected to
+    const connection = await pool.query(`
+      SELECT current_database(), current_user, current_schema()
+    `);
+
+    // Check schools stored in this database
+    const schools = await pool.query(`
+      SELECT school_id, school_name, school_email
+      FROM schools
+      ORDER BY created_at DESC
+    `);
 
     return NextResponse.json({
       success: true,
-      message: "Database connected successfully!",
-      time: result.rows[0].now,
+      connection: connection.rows[0],
+      schools: schools.rows,
     });
   } catch (error) {
     console.error("Database connection error:", error);

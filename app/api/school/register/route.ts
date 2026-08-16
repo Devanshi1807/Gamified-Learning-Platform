@@ -117,6 +117,7 @@ export async function POST(request: Request) {
       ]
     );
 
+    console.log("REGISTERED SCHOOL:", result.rows[0]);
     // 8. Return successful response
     return NextResponse.json(
       {
