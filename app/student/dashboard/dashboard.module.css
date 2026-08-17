@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.dashboard {
+  min-height: 100vh;
+
+  margin-left: 270px;
+
+  background: #f6f9fd;
+
+  font-family: "Manrope", sans-serif;
+}
+
+.content {
+  max-width: 1450px;
+
+  margin: 0 auto;
+
+  padding: 36px 38px 50px;
+}
+
+.mainLayout {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 280px;
+
+  gap: 24px;
+
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .mainLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* =========================
+   GREETING
+========================= */
+
+.greeting {
+  margin-bottom: 30px;
+}
+
+.greetingLabel {
+  margin: 0 0 6px;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.greeting h1 {
+  margin: 0;
+
+  color: #17233c;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.studentClass {
+  margin: 7px 0 0;
+
+  color: #718096;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .dashboard {
+    margin-left: 230px;
+  }
+
+  .content {
+    padding: 30px 26px 45px;
+  }
+
+  .greeting h1 {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard {
+    margin-left: 0;
+  }
+
+  .content {
+    padding: 25px 20px 40px;
+  }
+
+  .greeting {
+    margin-bottom: 25px;
+  }
+
+  .greeting h1 {
+    font-size: 24px;
+  }
+
+  .studentClass {
+    font-size: 12px;
+  }
+}

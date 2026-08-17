@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.container {
+  margin-top: 30px;
+
+  font-family: "Manrope", sans-serif;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.heading {
+  margin-bottom: 15px;
+}
+
+.heading h2 {
+  margin: 0;
+
+  color: #17233c;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.heading p {
+  margin: 5px 0 0;
+
+  color: #718096;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  min-height: 135px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 19px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  text-decoration: none;
+
+  border: 1px solid transparent;
+
+  box-shadow:
+    0 4px 14px rgba(37, 76, 130, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 9px 22px rgba(37, 76, 130, 0.09);
+}
+
+
+/* Decorative circle */
+
+.card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  right: -32px;
+  bottom: -38px;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  font-size: 16px;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+}
+
+.cardContent h3 {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.cardContent p {
+  margin: 4px 0 0;
+
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.arrow {
+  position: absolute;
+
+  right: 17px;
+  bottom: 17px;
+
+  z-index: 2;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  transition: transform 0.2s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}
+
+
+/* =========================
+   ENGLISH
+========================= */
+
+.english {
+  background: #fff5ec;
+
+  border-color: #f8dfc8;
+
+  color: #9a5b20;
+}
+
+.english .iconWrapper {
+  background: #ffe7cf;
+
+  color: #d97706;
+}
+
+
+/* =========================
+   MATHEMATICS
+========================= */
+
+.mathematics {
+  background: #eef5ff;
+
+  border-color: #dbe8fb;
+
+  color: #2457a6;
+}
+
+.mathematics .iconWrapper {
+  background: #dceaff;
+
+  color: #2563eb;
+}
+
+
+/* =========================
+   SCIENCE
+========================= */
+
+.science {
+  background: #ecfaf7;
+
+  border-color: #d4eee7;
+
+  color: #197567;
+}
+
+.science .iconWrapper {
+  background: #d8f3ed;
+
+  color: #0f9b83;
+}
+
+
+/* =========================
+   SOCIAL SCIENCE
+========================= */
+
+.socialScience {
+  background: #f5f0ff;
+
+  border-color: #e7dcfa;
+
+  color: #6646a8;
+}
+
+.socialScience .iconWrapper {
+  background: #e8ddff;
+
+  color: #7c3aed;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 120px;
+  }
+}

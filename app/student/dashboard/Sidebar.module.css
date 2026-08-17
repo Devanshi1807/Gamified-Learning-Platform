@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.sidebar {
+  width: 270px;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 18px;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e3eaf3;
+
+  font-family: "Manrope", sans-serif;
+
+  z-index: 100;
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 4px 10px;
+}
+
+.logoContainer {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background: #f0f6ff;
+
+  border: 1px solid #e2ebf7;
+}
+
+.logo {
+  width: 33px;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.brandText {
+  min-width: 0;
+}
+
+.brandText h2 {
+  margin: 0;
+
+  color: #17233c;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  letter-spacing: 0.2px;
+}
+
+.brandText p {
+  margin: 2px 0 0;
+
+  color: #8a98aa;
+
+  font-size: 10px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   STUDENT CARD
+========================= */
+
+/* =========================
+   SCHOOL / STUDENT CARD
+========================= */
+
+.studentCard {
+  margin-top: 24px;
+
+  padding: 13px 14px;
+
+  border-radius: 13px;
+
+  background: #f6f9fd;
+
+  border: 1px solid #e2ebf5;
+
+  overflow: hidden;
+}
+
+.schoolInfo {
+  min-width: 0;
+}
+
+.schoolLabel {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #2563eb;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.schoolInfo h3 {
+  margin: 0;
+
+  color: #25324a;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 12.5px;
+  font-weight: 800;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.schoolInfo p {
+  margin: 4px 0 0;
+
+  color: #8190a4;
+
+  font-size: 9.5px;
+  font-weight: 500;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+  height: 1px;
+
+  margin: 20px 10px;
+
+  background: #e8eef5;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+  flex: 1;
+
+  overflow-y: auto;
+}
+
+.sectionTitle {
+  margin: 0 10px 9px;
+
+  color: #8b98aa;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.navigationList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   NAV ITEM
+========================= */
+
+.navItem {
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 0 12px;
+
+  border-radius: 11px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navItem:hover {
+  background: #eef5ff;
+
+  color: #2563eb;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.icon {
+  width: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #8b98aa;
+
+  font-size: 14px;
+
+  transition: color 0.2s ease;
+}
+
+.navItem:hover .icon {
+  color: #2563eb;
+}
+
+
+/* =========================
+   ACTIVE
+========================= */
+
+.navItem.active {
+  position: relative;
+
+  background: #eaf2ff;
+
+  color: #2563eb;
+
+  font-weight: 700;
+}
+
+.navItem.active .icon {
+  color: #2563eb;
+}
+
+.navItem.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  width: 3px;
+  height: 21px;
+
+  border-radius: 0 5px 5px 0;
+
+  background: #2563eb;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logoutSection {
+  padding: 17px 8px 2px;
+
+  border-top: 1px solid #e8eef5;
+}
+
+.logoutSection button {
+  width: 100%;
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 0 12px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: transparent;
+
+  color: #718096;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.logoutSection button:hover {
+  background: #eef5ff;
+
+  color: #2563eb;
+}
+
+.logoutIcon {
+  width: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.navigation::-webkit-scrollbar {
+  width: 4px;
+}
+
+.navigation::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.navigation::-webkit-scrollbar-thumb {
+  background: #dbe4ef;
+
+  border-radius: 10px;
+}
+
+.navigation::-webkit-scrollbar-thumb:hover {
+  background: #c3d2e3;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 230px;
+
+    padding: 22px 14px;
+  }
+
+  .navItem {
+    font-size: 12.5px;
+  }
+}
+
+
+/* =========================
+   REDUCE MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navItem,
+  .navItem:hover,
+  .icon {
+    transition: none;
+  }
+}

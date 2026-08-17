@@ -1,0 +1,434 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+  font-family: "Manrope", sans-serif;
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #2563eb;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.1px;
+}
+
+.streakHeader h2,
+.sectionHeading h2 {
+  margin: 0;
+
+  color: #17233c;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   STREAK CARD
+========================= */
+
+.streakCard {
+  padding: 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  background: linear-gradient(
+    145deg,
+    #fff7e8,
+    #fff1d8
+  );
+
+  border: 1px solid #f6dfb7;
+
+  box-shadow:
+    0 5px 18px rgba(120, 80, 20, 0.05);
+}
+
+
+/* Decorative circle */
+
+.streakCard::after {
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+
+  right: -48px;
+  top: -45px;
+
+  background: rgba(245, 158, 11, 0.09);
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   STREAK HEADER
+========================= */
+
+.streakHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  position: relative;
+  z-index: 1;
+}
+
+.streakHeader h2 {
+  color: #684713;
+
+  font-size: 15px;
+}
+
+.fireIcon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #fff0ce;
+
+  color: #f59e0b;
+
+  font-size: 17px;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   STREAK NUMBER
+========================= */
+
+.streakNumber {
+  display: flex;
+  align-items: baseline;
+
+  gap: 5px;
+
+  margin-top: 22px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.streakNumber strong {
+  color: #b45309;
+
+  font-size: 36px;
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+.streakNumber span {
+  color: #9a6b32;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   STREAK BAR
+========================= */
+
+.streakBar {
+  width: 100%;
+  height: 8px;
+
+  margin-top: 15px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #f3dfbd;
+
+  position: relative;
+  z-index: 1;
+}
+
+.streakValue {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #f59e0b,
+    #fb923c
+  );
+
+  transition: width 0.4s ease;
+}
+
+
+/* =========================
+   STREAK FOOTER
+========================= */
+
+.streakFooter {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-top: 8px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.streakFooter span {
+  color: #9a6b32;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.streakMessage {
+  margin: 14px 0 0;
+
+  color: #85602f;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   ACHIEVEMENTS CARD
+========================= */
+
+.achievementsCard {
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eaf4;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 4px 14px rgba(37, 76, 130, 0.035);
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #edf2f7;
+}
+
+.trophyIcon {
+  color: #f59e0b;
+
+  font-size: 17px;
+}
+
+
+/* =========================
+   ACHIEVEMENT LIST
+========================= */
+
+.achievementList {
+  display: flex;
+  flex-direction: column;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #f0f4f8;
+}
+
+.achievement:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================
+   ACHIEVEMENT ICON
+========================= */
+
+.achievementIcon {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #f1f5ff;
+
+  color: #2563eb;
+
+  font-size: 13px;
+}
+
+
+/* Give some variety */
+
+.achievement:nth-child(2) .achievementIcon {
+  background: #fff7df;
+
+  color: #e6a008;
+}
+
+.achievement:nth-child(3) .achievementIcon {
+  background: #fff0e8;
+
+  color: #ea6a2a;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.achievementContent {
+  min-width: 0;
+}
+
+.achievementContent h3 {
+  margin: 0;
+
+  color: #34445c;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.achievementContent p {
+  margin: 3px 0 0;
+
+  color: #8a98aa;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  line-height: 1.4;
+}
+
+
+/* =========================
+   VIEW ALL
+========================= */
+
+.viewAll {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 15px;
+
+  padding: 9px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #eef5ff;
+
+  color: #2563eb;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.viewAll span {
+  font-size: 13px;
+
+  transition: transform 0.2s ease;
+}
+
+.viewAll:hover {
+  background: #e2edff;
+
+  color: #1d4ed8;
+}
+
+.viewAll:hover span {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   MOBILE / TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .sidebar {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    align-items: start;
+  }
+}
+
+@media (max-width: 650px) {
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+}

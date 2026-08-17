@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.page {
+  min-height: 100vh;
+
+  margin-left: 270px;
+
+  background: #f8fbff;
+
+  font-family: "Manrope", sans-serif;
+}
+
+.content {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 40px 36px 60px;
+}
+
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 25px;
+
+  color: #8190a4;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.breadcrumb span {
+  color: #b2bdca;
+
+  font-size: 15px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  margin-bottom: 30px;
+}
+
+.moduleLabel {
+  color: #2563eb;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.header h1 {
+  margin: 6px 0 0;
+
+  color: #17233c;
+
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.header p {
+  max-width: 600px;
+
+  margin: 8px 0 0;
+
+  color: #718096;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   GAME CARD
+========================= */
+
+.gameCard {
+  min-height: 380px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe9f4;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 6px 22px rgba(37, 76, 130, 0.05);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.gameIcon {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 20px;
+
+  background: #eef5ff;
+
+  font-size: 32px;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.gameCard h2 {
+  margin: 0;
+
+  color: #17233c;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.gameCard p {
+  max-width: 450px;
+
+  margin: 8px 0 22px;
+
+  color: #8190a4;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.startButton {
+  min-width: 130px;
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 12px rgba(37, 99, 235, 0.20);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.startButton:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .page {
+    margin-left: 230px;
+  }
+
+  .content {
+    padding: 30px 26px 50px;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    margin-left: 0;
+  }
+
+  .content {
+    padding: 25px 20px 40px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .gameCard {
+    min-height: 320px;
+
+    padding: 25px;
+  }
+}
