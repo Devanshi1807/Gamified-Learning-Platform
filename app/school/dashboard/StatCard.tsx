@@ -1,40 +1,51 @@
 import {
-  IconType,
-} from "react-icons";
+  UsersRound,
+  GraduationCap,
+  BookOpen,
+  TrendingUp,
+} from "lucide-react";
 
 import styles from "./StatCard.module.css";
 
 interface StatCardProps {
+  type: "teachers" | "students" | "classes";
   title: string;
-  value: number;
+  value: string;
   description: string;
-  icon: IconType;
-  variant: "teachers" | "students" | "classes";
 }
 
 export default function StatCard({
+  type,
   title,
   value,
   description,
-  icon: Icon,
-  variant,
 }: StatCardProps) {
+  const icons = {
+    teachers: UsersRound,
+    students: GraduationCap,
+    classes: BookOpen,
+  };
+
+  const Icon = icons[type];
+
   return (
-    <div className={`${styles.card} ${styles[variant]}`}>
-      <div className={styles.topRow}>
-        <div className={styles.iconWrapper}>
-          <Icon />
-        </div>
+    <div className={`${styles.card} ${styles[type]}`}>
+      <div className={styles.iconBox}>
+        <Icon size={28} strokeWidth={2.2} />
       </div>
 
-      <div className={styles.content}>
-        <p className={styles.title}>{title}</p>
+      <div className={styles.details}>
+        <span className={styles.title}>{title}</span>
 
-        <h2>{value}</h2>
+        <strong className={styles.value}>{value}</strong>
 
-        <p className={styles.description}>
+        <span className={styles.description}>
           {description}
-        </p>
+        </span>
+      </div>
+
+      <div className={styles.trend}>
+        <TrendingUp size={17} />
       </div>
     </div>
   );

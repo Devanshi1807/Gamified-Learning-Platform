@@ -1,162 +1,152 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-
 .card {
-  min-height: 175px;
+  min-height: 166px;
 
-  padding: 24px;
+  position: relative;
+
+  border-radius: 16px;
+
+  border: 1px solid #e8ebf3;
+
+  padding: 31px 25px;
 
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 
-  background: #ffffff;
+  gap: 20px;
 
-  border: 1px solid #e3eaf3;
-  border-radius: 17px;
+  overflow: hidden;
 
-  box-shadow:
-    0 4px 14px rgba(37, 76, 130, 0.04);
+  box-shadow: 0 5px 20px rgba(27, 54, 95, 0.06);
 
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-
-  font-family: "Manrope", sans-serif;
 }
 
 .card:hover {
   transform: translateY(-3px);
-
-  box-shadow:
-    0 10px 25px rgba(37, 76, 130, 0.09);
+  box-shadow: 0 10px 28px rgba(27, 54, 95, 0.1);
 }
 
-
-/* =========================
-   ICON
-========================= */
-
-.topRow {
-  display: flex;
-  justify-content: flex-end;
+.teachers {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f2f5ff 100%
+  );
 }
 
-.iconWrapper {
-  width: 44px;
-  height: 44px;
+.students {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f0faf7 100%
+  );
+}
+
+.classes {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fbf3ff 100%
+  );
+}
+
+.iconBox {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 12px;
-
-  font-size: 17px;
+  flex-shrink: 0;
 }
 
+.teachers .iconBox {
+  background: #e7edff;
+  color: #1758db;
+}
 
-/* =========================
-   CONTENT
-========================= */
+.students .iconBox {
+  background: #e5f6ee;
+  color: #119447;
+}
 
-.content {
-  margin-top: 18px;
+.classes .iconBox {
+  background: #f2e7ff;
+  color: #7936d3;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
-  margin: 0;
-
-  color: #718096;
-
-  font-size: 12px;
+  color: #52617b;
+  font-size: 13px;
   font-weight: 600;
+  margin-bottom: 7px;
 }
 
-.content h2 {
-  margin: 4px 0 1px;
-
-  color: #17233c;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 32px;
-  font-weight: 800;
-
-  letter-spacing: -1px;
+.value {
+  color: #132b55;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 700;
 }
 
 .description {
-  margin: 0;
-
-  color: #8a98aa;
-
-  font-size: 11px;
+  margin-top: 13px;
+  color: #71809a;
+  font-size: 12px;
 }
 
+.trend {
+  position: absolute;
 
-/* =========================
-   TEACHERS
-   ROYAL BLUE
-========================= */
+  right: 21px;
+  top: 25px;
 
-.teachers .iconWrapper {
-  background: #e8f0ff;
+  width: 35px;
+  height: 35px;
 
-  color: #2563eb;
+  border-radius: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-/* =========================
-   STUDENTS
-   INDIGO
-========================= */
-
-.students .iconWrapper {
-  background: #e9eaff;
-
-  color: #4f46e5;
+.teachers .trend {
+  background: #e8eeff;
+  color: #1858dc;
 }
 
-
-/* =========================
-   CLASSES
-   SKY BLUE
-========================= */
-
-.classes .iconWrapper {
-  background: #e5f5ff;
-
-  color: #0284c7;
+.students .trend {
+  background: #e5f6ef;
+  color: #15974d;
 }
 
+.classes .trend {
+  background: #f3e7ff;
+  color: #7636d1;
+}
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
+@media (max-width: 550px) {
   .card {
-    min-height: 160px;
-
-    padding: 20px;
+    padding: 24px 20px;
   }
 
-  .content h2 {
-    font-size: 28px;
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    min-height: 145px;
+  .iconBox {
+    width: 60px;
+    height: 60px;
   }
 
-  .iconWrapper {
-    width: 40px;
-    height: 40px;
-  }
-
-  .content h2 {
-    font-size: 26px;
+  .value {
+    font-size: 29px;
   }
 }

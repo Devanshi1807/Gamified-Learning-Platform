@@ -1,28 +1,43 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FaArrowLeft, FaGraduationCap, FaKey, FaUserGraduate } from "react-icons/fa";
+
+import {
+  FaArrowLeft,
+  FaUserGraduate,
+  FaShieldAlt,
+  FaKey,
+  FaGraduationCap,
+} from "react-icons/fa";
 
 import styles from "./login.module.css";
 
-export default function Page() {
+export default function StudentLoginPage() {
+  const router = useRouter();
+
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
 
-  const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setError("");
+    setSuccessMessage("");
 
+    // Validate Student ID
     if (!studentId.trim()) {
       setError("Please enter your Student ID.");
       return;
     }
 
+    // Validate password
     if (!password) {
       setError("Please enter your password.");
       return;
@@ -30,27 +45,40 @@ export default function Page() {
 
     setIsSubmitting(true);
 
-    /*
-     * Backend will be connected later.
-     *
-     * POST /api/student/login
-     *
-     * {
-     *   studentId,
-     *   password
-     * }
-     */
-
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("/api/student/login", {
+        method: "POST",
 
-      console.log({
-        studentId,
-        password,
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          studentId: studentId.trim(),
+          password,
+        }),
       });
 
-      // Temporary only
-      setError("Student login backend is not connected yet.");
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(
+          data.message || "Invalid Student ID or password."
+        );
+        return;
+      }
+
+      setSuccessMessage("Login successful!");
+
+      setTimeout(() => {
+        router.push("/student/dashboard");
+      }, 500);
+    } catch (error) {
+      console.error("Student login request failed:", error);
+
+      setError(
+        "Unable to connect to the server. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -58,14 +86,29 @@ export default function Page() {
 
   return (
     <main className={styles.page}>
+      {/* =====================================================
+          BACK BUTTON
+          ===================================================== */}
+
       <Link href="/" className={styles.backButton}>
         <FaArrowLeft />
         <span>Back</span>
       </Link>
 
+      {/* =====================================================
+          LOGIN CARD
+          ===================================================== */}
+
       <section className={styles.loginCard}>
-        {/* LEFT PANEL */}
+
+        {/* ===================================================
+            LEFT INFORMATION PANEL
+            =================================================== */}
+
         <aside className={styles.informationPanel}>
+
+          {/* LOGO */}
+
           <div className={styles.logoSection}>
             <img
               src="/nois_logo.png"
@@ -74,11 +117,17 @@ export default function Page() {
             />
           </div>
 
+          {/* INFORMATION */}
+
           <div className={styles.informationContent}>
+
             <h1>
               Welcome
               <br />
-              <span className={styles.highlightText}>Student.</span>
+
+              <span className={styles.exceptionalText}>
+                Student.
+              </span>
             </h1>
 
             <div className={styles.headingLine} />
@@ -88,50 +137,97 @@ export default function Page() {
               achievements and progress from one place.
             </p>
 
+            {/* FEATURES */}
+
             <div className={styles.featureList}>
+
+              {/* FEATURE 1 */}
+
               <div className={styles.featureItem}>
                 <span className={styles.featureIcon}>
                   <FaUserGraduate />
                 </span>
-                <span>Your Learning Dashboard</span>
+
+                <span>
+                  Your Learning Dashboard
+                </span>
               </div>
+
+              {/* FEATURE 2 */}
 
               <div className={styles.featureItem}>
                 <span className={styles.featureIcon}>
                   <FaGraduationCap />
                 </span>
-                <span>Track Your Progress</span>
+
+                <span>
+                  Track Your Progress
+                </span>
               </div>
+
+              {/* FEATURE 3 */}
 
               <div className={styles.featureItem}>
                 <span className={styles.featureIcon}>
                   <FaKey />
                 </span>
-                <span>Secure Student Access</span>
+
+                <span>
+                  Secure Student Access
+                </span>
               </div>
+
             </div>
           </div>
 
+                            <img
+          src="/school-campus.jpg"
+          alt="School campus"
+          className={styles.schoolImage}
+        />
+
+
+          {/* DECORATIVE CIRCLES */}
+
           <div className={styles.cloudOne} />
           <div className={styles.cloudTwo} />
-          
+
+
         </aside>
 
-        {/* RIGHT PANEL */}
+        {/* ===================================================
+            RIGHT FORM PANEL
+            =================================================== */}
+
         <section className={styles.formPanel}>
+
           <div className={styles.formContainer}>
+
+            {/* FORM HEADING */}
+
             <div className={styles.formHeading}>
+
+              {/* Mobile icon */}
+
               <span className={styles.mobileLogo}>
                 <FaUserGraduate />
               </span>
 
               <div>
-                <h2>Student Login</h2>
+                <h2>
+                  Student Login
+                </h2>
+
                 <p>
                   Enter your student credentials to continue.
                 </p>
               </div>
+
             </div>
+
+            {/* =================================================
+                ERROR MESSAGE
+                ================================================= */}
 
             {error && (
               <div className={styles.errorMessage}>
@@ -139,17 +235,37 @@ export default function Page() {
               </div>
             )}
 
+            {/* =================================================
+                SUCCESS MESSAGE
+                ================================================= */}
+
+            {successMessage && (
+              <div className={styles.successMessage}>
+                {successMessage}
+              </div>
+            )}
+
+            {/* =================================================
+                LOGIN FORM
+                ================================================= */}
+
             <form
               onSubmit={handleSubmit}
               className={styles.loginForm}
             >
-              {/* STUDENT ID */}
+
+              {/* =================================================
+                  STUDENT ID
+                  ================================================= */}
+
               <div className={styles.formGroup}>
+
                 <label htmlFor="studentId">
                   Student ID
                 </label>
 
                 <div className={styles.inputWrapper}>
+
                   <FaUserGraduate />
 
                   <input
@@ -162,16 +278,23 @@ export default function Page() {
                     }
                     autoComplete="username"
                   />
+
                 </div>
+
               </div>
 
-              {/* PASSWORD */}
+              {/* =================================================
+                  PASSWORD
+                  ================================================= */}
+
               <div className={styles.formGroup}>
+
                 <label htmlFor="password">
                   Password
                 </label>
 
                 <div className={styles.inputWrapper}>
+
                   <FaKey />
 
                   <input
@@ -184,38 +307,48 @@ export default function Page() {
                     }
                     autoComplete="current-password"
                   />
+
                 </div>
+
               </div>
 
-              <div className={styles.forgotPassword}>
-                <Link href="/student/forgot-password">
-                  Forgot password?
-                </Link>
-              </div>
+              {/* =================================================
+                  LOGIN BUTTON
+                  ================================================= */}
 
               <button
                 type="submit"
                 className={styles.loginButton}
                 disabled={isSubmitting}
               >
-                <FaGraduationCap />
+
+                <FaShieldAlt />
 
                 <span>
                   {isSubmitting
                     ? "Logging in..."
                     : "Login"}
                 </span>
+
               </button>
+
             </form>
 
-            <p className={styles.helpText}>
-              Don't have your Student ID or password?
+            {/* =================================================
+                BOTTOM TEXT
+                ================================================= */}
+
+            <p className={styles.registerText}>
+              Don't have a Student ID or password?
               <br />
-              Please contact your teacher or school
-              administrator.
+
+              Please contact your teacher or school administrator.
             </p>
+
           </div>
+
         </section>
+
       </section>
     </main>
   );

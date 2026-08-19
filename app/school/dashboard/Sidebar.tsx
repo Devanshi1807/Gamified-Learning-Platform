@@ -1,146 +1,143 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
-  FaTachometerAlt,
-  FaChalkboardTeacher,
-  FaSchool,
-  FaBullhorn,
-  FaUniversity,
-  FaCog,
-  FaSignOutAlt,
-} from "react-icons/fa";
+  LayoutDashboard,
+  UsersRound,
+  GraduationCap,
+  BookOpen,
+  Megaphone,
+  CalendarDays,
+  CalendarCheck,
+  BriefcaseBusiness,
+  School,
+  Settings,
+  X,
+  CloudSun,
+  MapPin,
+  UserPlus,
+} from "lucide-react";
 
-import LogoutButton from "@/components/school/LogoutButton";
 import styles from "./Sidebar.module.css";
 
 interface SidebarProps {
-  schoolName: string;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export default function Sidebar({ schoolName }: SidebarProps) {
-  const pathname = usePathname();
-
-  const mainNavigation = [
-    {
-      name: "Dashboard",
-      href: "/school/dashboard",
-      icon: FaTachometerAlt,
-    },
-    {
-      name: "Teachers",
-      href: "/school/teachers",
-      icon: FaChalkboardTeacher,
-    },
-    {
-      name: "Classes",
-      href: "/school/classes",
-      icon: FaSchool,
-    },
-    {
-      name: "Announcements",
-      href: "/school/announcements",
-      icon: FaBullhorn,
-    },
-  ];
-
-  const schoolNavigation = [
-    {
-      name: "School Profile",
-      href: "/school/profile",
-      icon: FaUniversity,
-    },
-    {
-      name: "Settings",
-      href: "/school/settings",
-      icon: FaCog,
-    },
-  ];
-
+export default function Sidebar({
+  isOpen,
+  onClose,
+}: SidebarProps) {
   return (
-    <aside className={styles.sidebar}>
-      {/* SCHOOL BRANDING */}
-      <div className={styles.brand}>
-        <div className={styles.logoContainer}>
-          <img
-            src="/nois_logo.png"
-            alt="NOIS"
-            className={styles.logo}
-          />
-        </div>
+    <aside
+      className={`${styles.sidebar} ${
+        isOpen ? styles.open : styles.closed
+      }`}
+    >
+      <div className={styles.sidebarTop}>
+        <button className={styles.closeButton} onClick={onClose}>
+          <X size={21} />
+        </button>
+
+<div className={styles.logo}>
+  <img
+    src="/nois_logo.png"
+    alt="NOIS Logo"
+  />
+</div>
 
         <div className={styles.schoolInfo}>
-          <h2>{schoolName}</h2>
+          <h3>Test School</h3>
           <p>School Administrator</p>
         </div>
       </div>
 
-      <div className={styles.divider} />
-
-      {/* MAIN NAVIGATION */}
       <nav className={styles.navigation}>
-        <p className={styles.sectionTitle}>MAIN</p>
+        <div className={styles.sectionTitle}>MAIN</div>
 
-        <div className={styles.navigationList}>
-          {mainNavigation.map((item) => {
-            const Icon = item.icon;
+        <a className={`${styles.navItem} ${styles.active}`}>
+          <LayoutDashboard size={21} />
+          <span>Dashboard</span>
+        </a>
 
-            const isActive =
-              pathname === item.href ||
-              pathname.startsWith(`${item.href}/`);
+        <a className={styles.navItem}>
+          <UsersRound size={21} />
+          <span>Teachers</span>
+        </a>
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${styles.navItem} ${
-                  isActive ? styles.active : ""
-                }`}
-              >
-                <span className={styles.icon}>
-                  <Icon />
-                </span>
+        <a className={styles.navItem}>
+          <GraduationCap size={21} />
+          <span>Students</span>
+        </a>
 
-                <span>{item.name}</span>
-              </Link>
-            );
-          })}
-        </div>
+        <a className={styles.navItem}>
+          <BookOpen size={21} />
+          <span>Classes</span>
+        </a>
 
-        {/* SCHOOL SECTION */}
-        <p className={styles.sectionTitle}>SCHOOL</p>
+        <a className={styles.navItem}>
+          <Megaphone size={21} />
+          <span>Announcements</span>
+        </a>
 
-        <div className={styles.navigationList}>
-          {schoolNavigation.map((item) => {
-            const Icon = item.icon;
+        <div className={styles.divider} />
 
-            const isActive =
-              pathname === item.href ||
-              pathname.startsWith(`${item.href}/`);
+        <div className={styles.sectionTitle}>MORE</div>
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${styles.navItem} ${
-                  isActive ? styles.active : ""
-                }`}
-              >
-                <span className={styles.icon}>
-                  <Icon />
-                </span>
+        <a className={styles.navItem}>
+          <CalendarDays size={21} />
+          <span>Timetable</span>
+        </a>
 
-                <span>{item.name}</span>
-              </Link>
-            );
-          })}
-        </div>
+        <a className={styles.navItem}>
+          <CalendarCheck size={21} />
+          <span>Exam Time Table</span>
+        </a>
+
+        <a className={styles.navItem}>
+          <BriefcaseBusiness size={21} />
+          <span>Records</span>
+        </a>
+
+        <div className={styles.divider} />
+
+        <div className={styles.sectionTitle}>SCHOOL</div>
+
+        <a className={styles.navItem}>
+          <School size={21} />
+          <span>School Profile</span>
+        </a>
+
+        <a className={styles.navItem}>
+          <Settings size={21} />
+          <span>Settings</span>
+        </a>
       </nav>
 
-      {/* LOGOUT */}
-      <div className={styles.logoutSection}>
-        <LogoutButton />
+      <div className={styles.weatherCard}>
+        <div className={styles.weatherTop}>
+          <CloudSun size={29} />
+          <div>
+            <strong>28°C</strong>
+            <span>Partly cloudy</span>
+          </div>
+        </div>
+
+        <div className={styles.location}>
+          <MapPin size={16} />
+          <span>Jhansi, India</span>
+        </div>
+      </div>
+
+      <div className={styles.profile}>
+        <div className={styles.avatar}>NA</div>
+
+        <div className={styles.profileInfo}>
+          <strong>Nikhil Admin</strong>
+          <span>Administrator</span>
+        </div>
+
+        <span className={styles.profileArrow}>⌄</span>
       </div>
     </aside>
   );

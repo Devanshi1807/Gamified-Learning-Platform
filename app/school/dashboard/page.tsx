@@ -1,84 +1,82 @@
-import { redirect } from "next/navigation";
-import {
-  FaChalkboardTeacher,
-  FaUserGraduate,
-  FaSchool,
-} from "react-icons/fa";
+"use client";
 
-import { getAuthenticatedSchool } from "@/lib/auth";
-
+import { useState } from "react";
 import Sidebar from "./Sidebar";
 import DashboardHeader from "./DashboardHeader";
-
 import StatCard from "./StatCard";
-import RecentActivity from "./RecentActivity";
 import QuickActions from "./QuickActions";
-
+import RecentActivity from "./RecentActivity";
 import styles from "./dashboard.module.css";
 
-export default async function SchoolDashboardPage() {
-  const school = await getAuthenticatedSchool();
-
-  if (!school) {
-    redirect("/school/login");
-  }
+export default function DashboardPage() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <>
-      <Sidebar schoolName={school.school_name} />
+    <div className={styles.dashboard}>
+      <Sidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
 
-      <main className={styles.dashboard}>
+      <div
+        className={`${styles.mainArea} ${
+          sidebarOpen ? styles.withSidebar : styles.fullWidth
+        }`}
+      >
         <DashboardHeader
-          schoolName={school.school_name}
+          onMenuClick={() => setSidebarOpen((prev) => !prev)}
         />
 
-        <div className={styles.content}>
-          {/* WELCOME */}
-          <section className={styles.welcome}>
-            <p>WELCOME BACK 👋</p>
+        <main className={styles.content}>
+          <div className={styles.welcomeSection}>
+            <div>
+              <div className={styles.welcomeSmall}>
+                ✣ &nbsp; WELCOME BACK, NIKHIL 👋
+              </div>
 
-            <h1>
-              Welcome, {school.school_name}
-            </h1>
+              <h1>Welcome, Test School</h1>
 
-            <span>
-              Here's what's happening in your school today.
-            </span>
-          </section>
+              <p>Here's what's happening in your school today.</p>
+            </div>
 
-          {/* STATISTICS */}
+            <div className={styles.dateCard}>
+              <div className={styles.calendarIcon}>▣</div>
+
+              <div>
+                <strong>May 23, 2025</strong>
+                <span>Friday</span>
+              </div>
+            </div>
+          </div>
+
           <section className={styles.statsGrid}>
             <StatCard
+              type="teachers"
               title="Teachers"
-              value={80}
+              value="80"
               description="Teachers in your school"
-              icon={FaChalkboardTeacher}
-              variant="teachers"
             />
 
             <StatCard
+              type="students"
               title="Students"
-              value={750}
+              value="750"
               description="Students enrolled"
-              icon={FaUserGraduate}
-              variant="students"
             />
 
             <StatCard
+              type="classes"
               title="Classes"
-              value={10}
+              value="10"
               description="Active classes"
-              icon={FaSchool}
-              variant="classes"
             />
           </section>
 
           <QuickActions />
 
-          {/* RECENT ACTIVITY */}
           <RecentActivity />
-        </div>
-      </main>
-    </>
+        </main>
+      </div>
+    </div>
   );
 }
