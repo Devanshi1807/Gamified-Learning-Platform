@@ -9,6 +9,8 @@
 .mainArea {
   min-height: 100vh;
   transition: margin-left 0.3s ease;
+  overflow :visible ;
+  position: relative;
 }
 
 .withSidebar {
@@ -23,6 +25,9 @@
   padding: 52px 48px 60px;
   max-width: 1500px;
   margin: 0 auto;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------------- WELCOME ---------------- */
@@ -227,7 +232,7 @@
 /* Popup */
 
 .miniCalendarPopup {
-  position: absolute;
+  position:absolute; ;
   top: calc(100% + 10px);
   right: 0;
   width: 290px;
@@ -237,7 +242,7 @@
   border-radius: 16px;
   box-shadow: 0 15px 40px rgba(15, 23, 42, 0.15);
   animation: calendarPopup 0.18s ease-out;
-  z-index: 100;
+  z-index: 10;
 }
 
 @keyframes calendarPopup {
@@ -338,4 +343,8 @@
 
 .todayButton:hover {
   background: #dbeafe;
+}
+.miniCalendar {
+  position: relative;
+  z-index: 1;
 }
