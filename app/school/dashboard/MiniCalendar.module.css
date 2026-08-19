@@ -1,0 +1,473 @@
+/* =========================================
+   MINI CALENDAR WRAPPER
+========================================= */
+
+.miniCalendarWrapper {
+  position: relative;
+  z-index: 100;
+}
+
+
+/* =========================================
+   SMALL DATE CARD
+========================================= */
+
+.miniDateCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 150px;
+  padding: 10px 13px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+  text-align: left;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.miniDateCard:hover {
+  transform: translateY(-1px);
+
+  border-color: #dbeafe;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   CALENDAR ICON
+========================================= */
+
+.miniCalendarIcon {
+  width: 36px;
+  height: 36px;
+
+  min-width: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f1f5ff;
+  color: #2563eb;
+
+  font-size: 16px;
+}
+
+
+/* =========================================
+   DATE TEXT
+========================================= */
+
+.miniDateText {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  white-space: nowrap;
+}
+
+.miniDateText strong {
+  color: #172554;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.miniDateText span {
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.miniArrow {
+  margin-left: auto;
+
+  color: #64748b;
+
+  font-size: 15px;
+  line-height: 1;
+}
+
+
+/* =========================================
+   CALENDAR POPUP
+========================================= */
+
+.miniCalendarPopup {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  right: 0;
+
+  width: 310px;
+
+  box-sizing: border-box;
+
+  padding: 16px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  box-shadow:
+    0 15px 40px rgba(15, 23, 42, 0.15);
+
+  animation: calendarPopup 0.18s ease-out;
+}
+
+
+/* =========================================
+   POPUP ANIMATION
+========================================= */
+
+@keyframes calendarPopup {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   MONTH HEADER
+========================================= */
+
+.miniCalendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-bottom: 14px;
+}
+
+.miniCalendarHeader strong {
+  color: #172554;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================
+   PREVIOUS / NEXT BUTTONS
+========================================= */
+
+.monthButton {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #f1f5f9;
+
+  color: #172554;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.monthButton:hover {
+  background: #e2e8f0;
+
+  transform: scale(1.05);
+}
+
+.monthButton:active {
+  transform: scale(0.95);
+}
+
+
+/* =========================================
+   WEEKDAY HEADER
+========================================= */
+
+.weekDays {
+  display: grid;
+
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+
+  gap: 6px;
+
+  width: 100%;
+
+  margin-bottom: 8px;
+}
+
+.weekDays span {
+  width: 100%;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   DATE GRID
+========================================= */
+
+.calendarDays {
+  display: grid;
+
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+
+  gap: 6px;
+
+  width: 100%;
+
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   INDIVIDUAL DATE
+========================================= */
+
+.calendarDay {
+  width: 100%;
+  height: 34px;
+
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #334155;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+/* =========================================
+   DATE HOVER
+========================================= */
+
+.calendarDay:hover:not(:disabled) {
+  background: #eef2ff;
+
+  color: #2563eb;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================
+   EMPTY DATE CELLS
+========================================= */
+
+.calendarDay:disabled {
+  background: transparent;
+
+  cursor: default;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   SELECTED DATE
+========================================= */
+
+.selectedDay {
+  background: #2563eb !important;
+
+  color: #ffffff !important;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 3px 8px rgba(37, 99, 235, 0.25);
+}
+
+.selectedDay:hover {
+  background: #1d4ed8 !important;
+
+  color: #ffffff !important;
+}
+
+
+/* =========================================
+   TODAY BUTTON
+========================================= */
+
+.todayButton {
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 9px 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.todayButton:hover {
+  background: #dbeafe;
+}
+
+.todayButton:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   FOCUS ACCESSIBILITY
+========================================= */
+
+.miniDateCard:focus-visible,
+.monthButton:focus-visible,
+.calendarDay:focus-visible,
+.todayButton:focus-visible {
+  outline: 2px solid #2563eb;
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .miniCalendarPopup {
+    width: 300px;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .miniDateCard {
+    min-width: 135px;
+
+    padding: 9px 10px;
+  }
+
+  .miniCalendarPopup {
+    width: 285px;
+
+    right: 0;
+
+    padding: 14px;
+  }
+
+  .calendarDays {
+    gap: 5px;
+  }
+
+  .weekDays {
+    gap: 5px;
+  }
+
+  .calendarDay {
+    height: 32px;
+  }
+}

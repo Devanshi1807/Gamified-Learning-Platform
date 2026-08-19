@@ -12,7 +12,7 @@ import {
   School,
   Settings,
   X,
-  CloudSun,
+  
   MapPin,
   UserPlus,
 } from "lucide-react";
@@ -114,20 +114,7 @@ export default function Sidebar({
         </a>
       </nav>
 
-      <div className={styles.weatherCard}>
-        <div className={styles.weatherTop}>
-          <CloudSun size={29} />
-          <div>
-            <strong>28°C</strong>
-            <span>Partly cloudy</span>
-          </div>
-        </div>
-
-        <div className={styles.location}>
-          <MapPin size={16} />
-          <span>Jhansi, India</span>
-        </div>
-      </div>
+      
 
       <div className={styles.profile}>
         <div className={styles.avatar}>NA</div>
