@@ -1,354 +1,145 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-
 .header {
+  height: 78px;
   width: 100%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid #e9edf4;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 30px;
+  padding: 0 28px;
 
-  padding: 28px 36px;
-
-  background: #ffffff;
-
-  border-bottom: 1px solid #e3eaf3;
-
-  font-family: "Manrope", sans-serif;
-
-  position: relative;
-
-  z-index: 50;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+.menuButton {
+  width: 44px;
+  height: 44px;
 
-/* =========================
-   HEADING
-========================= */
+  border: none;
+  border-radius: 50%;
 
-.headingSection {
-  min-width: 0;
-}
-
-.eyebrow {
-  margin: 0 0 6px;
-
-  color: #2563eb;
-
-  font-size: 10px;
-  font-weight: 800;
-
-  letter-spacing: 1.4px;
-}
-
-.headingSection h1 {
-  margin: 0;
-
-  color: #17233c;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 25px;
-  font-weight: 800;
-
-  letter-spacing: -0.7px;
-}
-
-.subtitle {
-  margin: 6px 0 0;
-
-  color: #718096;
-
-  font-size: 13px;
-}
-
-
-/* =========================
-   SESSION
-========================= */
-
-.sessionSection {
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-end;
-
-  gap: 6px;
-
-  flex-shrink: 0;
-}
-
-.sessionLabel {
-  color: #7b8798;
-
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing: 0.5px;
-}
-
-.dropdownWrapper {
-  position: relative;
-}
-
-
-/* =========================
-   SESSION BUTTON
-========================= */
-
-.sessionButton {
-  min-width: 155px;
-  height: 43px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 0 13px;
-
-  border: 1px solid #dbe4ef;
-  border-radius: 11px;
-
-  background: #ffffff;
-
-  color: #34445c;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 13px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.sessionButton:hover {
-  background: #f8fbff;
-
-  border-color: #b9cbe1;
-}
-
-.sessionButton:focus-visible {
-  outline: none;
-
-  border-color: #2563eb;
-
-  box-shadow:
-    0 0 0 3px rgba(37, 99, 235, 0.10);
-}
-
-
-/* =========================
-   CALENDAR ICON
-========================= */
-
-.calendarIcon {
-  width: 28px;
-  height: 28px;
+  background: #102e61;
+  color: white;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 8px;
+  cursor: pointer;
 
-  background: #eaf2ff;
+  box-shadow: 0 5px 12px rgba(15, 44, 91, 0.2);
 
-  color: #2563eb;
-
-  font-size: 12px;
+  transition: 0.2s;
 }
 
-.chevron {
-  margin-left: auto;
-
-  color: #8492a6;
-
-  font-size: 10px;
-
-  transition: transform 0.2s ease;
+.menuButton:hover {
+  transform: scale(1.04);
 }
 
-.chevronOpen {
-  transform: rotate(180deg);
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
+.notification {
+  width: 40px;
+  height: 40px;
 
-/* =========================
-   DROPDOWN
-========================= */
+  position: relative;
 
-.dropdown {
-  position: absolute;
+  border: none;
+  background: transparent;
 
-  top: calc(100% + 7px);
-  right: 0;
-
-  width: 155px;
-
-  padding: 6px;
-
-  background: #ffffff;
-
-  border: 1px solid #dbe4ef;
-  border-radius: 12px;
-
-  box-shadow:
-    0 12px 30px rgba(35, 65, 100, 0.10),
-    0 3px 10px rgba(35, 65, 100, 0.05);
-}
-
-.dropdownItem {
-  width: 100%;
-  height: 38px;
+  color: #25395d;
 
   display: flex;
   align-items: center;
-
-  padding: 0 11px;
-
-  border: none;
-  border-radius: 8px;
-
-  background: transparent;
-
-  color: #64748b;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  text-align: left;
+  justify-content: center;
 
   cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
 }
 
-.dropdownItem:hover {
-  background: #eef5ff;
+.badge {
+  position: absolute;
 
-  color: #2563eb;
-}
+  right: -1px;
+  top: -1px;
 
-.dropdownItem.selected {
-  background: #eaf2ff;
+  width: 18px;
+  height: 18px;
 
-  color: #2563eb;
+  background: #1659d8;
+  color: white;
 
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
   font-weight: 700;
 }
 
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
-  .header {
-    padding: 24px 26px;
-  }
-
-  .headingSection h1 {
-    font-size: 22px;
-  }
-
-  .subtitle {
-    font-size: 12px;
-  }
+.adminProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
+.avatar {
+  width: 45px;
+  height: 45px;
 
-/* =========================
-   MOBILE
-========================= */
+  border-radius: 50%;
 
-@media (max-width: 650px) {
-  .header {
-    align-items: flex-start;
+  background: #245de0;
+  color: white;
 
-    padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    gap: 18px;
-  }
-
-  .headingSection {
-    flex: 1;
-  }
-
-  .eyebrow {
-    font-size: 9px;
-  }
-
-  .headingSection h1 {
-    font-size: 20px;
-  }
-
-  .subtitle {
-    font-size: 11.5px;
-
-    line-height: 1.5;
-  }
-
-  .sessionLabel {
-    font-size: 9px;
-  }
-
-  .sessionButton {
-    min-width: 130px;
-
-    height: 40px;
-
-    font-size: 12px;
-  }
-
-  .calendarIcon {
-    width: 25px;
-    height: 25px;
-
-    font-size: 10px;
-  }
-
-  .dropdown {
-    width: 130px;
-  }
+  font-size: 14px;
+  font-weight: 600;
 }
 
+.adminInfo strong {
+  display: block;
+  font-size: 13px;
+  color: #192d52;
+}
 
-/* =========================
-   SMALL MOBILE
-========================= */
+.adminInfo span {
+  display: block;
+  margin-top: 3px;
 
-@media (max-width: 450px) {
+  color: #7b879d;
+  font-size: 11px;
+}
+
+.chevron {
+  color: #53627a;
+  margin-left: 12px;
+}
+
+@media (max-width: 600px) {
   .header {
-    flex-direction: column;
-
-    align-items: stretch;
+    padding: 0 16px;
   }
 
-  .sessionSection {
-    align-items: flex-start;
+  .adminInfo {
+    display: none;
   }
 
-  .sessionButton {
-    width: 100%;
-
-    justify-content: flex-start;
-  }
-
-  .dropdown {
-    left: 0;
-    right: auto;
-
-    width: 100%;
+  .headerRight {
+    gap: 10px;
   }
 }

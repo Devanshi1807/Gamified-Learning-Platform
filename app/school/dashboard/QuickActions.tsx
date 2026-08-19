@@ -1,79 +1,73 @@
-import Link from "next/link";
 import {
-  FaChalkboardTeacher,
-  FaUserGraduate,
-  FaSchool,
-  FaChartBar,
-} from "react-icons/fa";
+  UserPlus,
+  UserRoundPlus,
+  BookOpen,
+  BarChart3,
+  ArrowRight,
+} from "lucide-react";
 
 import styles from "./QuickActions.module.css";
 
-const actions = [
-  {
-    name: "Add Teacher",
-    description: "Register a new teacher",
-    href: "/school/teachers/add",
-    icon: FaChalkboardTeacher,
-    variant: "teacher",
-  },
-  {
-    name: "Add Student",
-    description: "Register a new student",
-    href: "/school/students/add",
-    icon: FaUserGraduate,
-    variant: "student",
-  },
-  {
-    name: "Create Class",
-    description: "Create a new class",
-    href: "/school/classes/create",
-    icon: FaSchool,
-    variant: "class",
-  },
-  {
-    name: "View Reports",
-    description: "View school reports",
-    href: "/school/reports",
-    icon: FaChartBar,
-    variant: "report",
-  },
-];
-
 export default function QuickActions() {
   return (
-    <section className={styles.container}>
+    <section className={styles.section}>
       <div className={styles.heading}>
-        <div>
-          <h2>Quick Actions</h2>
-          <p>Common school administration tasks.</p>
-        </div>
+        <h2>Quick Actions</h2>
+        <p>Common school administration tasks</p>
       </div>
 
-      <div className={styles.actionsGrid}>
-        {actions.map((action) => {
-          const Icon = action.icon;
+      <div className={styles.actions}>
+        <button className={`${styles.action} ${styles.blue}`}>
+          <div className={styles.actionIcon}>
+            <UserPlus size={22} />
+          </div>
 
-          return (
-            <Link
-              key={action.name}
-              href={action.href}
-              className={`${styles.actionCard} ${
-                styles[action.variant]
-              }`}
-            >
-              <div className={styles.iconWrapper}>
-                <Icon />
-              </div>
+          <div className={styles.actionText}>
+            <strong>Add Teacher</strong>
+            <span>Register a new teacher</span>
+          </div>
 
-              <div className={styles.actionContent}>
-                <h3>{action.name}</h3>
-                <p>{action.description}</p>
-              </div>
+          <ArrowRight size={20} />
+        </button>
 
-              <span className={styles.arrow}>→</span>
-            </Link>
-          );
-        })}
+        <button className={`${styles.action} ${styles.green}`}>
+          <div className={styles.actionIcon}>
+            <UserRoundPlus size={22} />
+          </div>
+
+          <div className={styles.actionText}>
+            <strong>Add Student</strong>
+            <span>Register a new student</span>
+          </div>
+
+          <ArrowRight size={20} />
+        </button>
+
+        <button className={`${styles.action} ${styles.purple}`}>
+          <div className={styles.actionIcon}>
+            <BookOpen size={22} />
+          </div>
+
+          <div className={styles.actionText}>
+            <strong>Create Class</strong>
+            <span>Create a new class</span>
+          </div>
+
+          <ArrowRight size={20} />
+        </button>
+
+        <button className={`${styles.action} ${styles.navy}`}>
+          <div className={styles.actionIcon}>
+            <BarChart3 size={22} />
+          </div>
+
+          <div className={styles.actionText}>
+            <strong>View Reports</strong>
+            <span>View school reports</span>
+          </div>
+
+          <ArrowRight size={20} />
+        </button>
       </div>
     </section>
   );

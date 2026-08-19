@@ -1,41 +1,18 @@
 import {
-  FaChalkboardTeacher,
-  FaBullhorn,
-  FaUserGraduate,
-} from "react-icons/fa";
+  UserPlus,
+  Megaphone,
+  GraduationCap,
+} from "lucide-react";
 
 import styles from "./RecentActivity.module.css";
-
-const activities = [
-  {
-    id: 1,
-    type: "teacher",
-    title: "New teacher Rahul Sharma added",
-    time: "10 minutes ago",
-  },
-  {
-    id: 2,
-    type: "announcement",
-    title: "New announcement published",
-    time: "1 hour ago",
-  },
-  {
-    id: 3,
-    type: "student",
-    title: "25 new students registered",
-    time: "Yesterday",
-  },
-];
 
 export default function RecentActivity() {
   return (
     <section className={styles.container}>
-      <div className={styles.heading}>
+      <div className={styles.header}>
         <div>
           <h2>Recent Activity</h2>
-          <p>
-            Recent changes made in your school.
-          </p>
+          <p>Recent changes made in your school</p>
         </div>
 
         <button className={styles.viewAll}>
@@ -43,38 +20,48 @@ export default function RecentActivity() {
         </button>
       </div>
 
-      <div className={styles.activityList}>
-        {activities.map((activity) => {
-          let Icon = FaChalkboardTeacher;
+      <div className={styles.activities}>
+        <div className={styles.activity}>
+          <div className={`${styles.icon} ${styles.blue}`}>
+            <UserPlus size={18} />
+          </div>
 
-          if (activity.type === "announcement") {
-            Icon = FaBullhorn;
-          }
+          <div className={styles.activityText}>
+            <strong>
+              New teacher Rahul Sharma added
+            </strong>
 
-          if (activity.type === "student") {
-            Icon = FaUserGraduate;
-          }
+            <span>10 minutes ago</span>
+          </div>
+        </div>
 
-          return (
-            <div
-              className={styles.activityItem}
-              key={activity.id}
-            >
-              <div
-                className={`${styles.iconWrapper} ${
-                  styles[activity.type]
-                }`}
-              >
-                <Icon />
-              </div>
+        <div className={styles.activity}>
+          <div className={`${styles.icon} ${styles.green}`}>
+            <Megaphone size={18} />
+          </div>
 
-              <div className={styles.activityContent}>
-                <p>{activity.title}</p>
-                <span>{activity.time}</span>
-              </div>
-            </div>
-          );
-        })}
+          <div className={styles.activityText}>
+            <strong>
+              New announcement published
+            </strong>
+
+            <span>1 hour ago</span>
+          </div>
+        </div>
+
+        <div className={styles.activity}>
+          <div className={`${styles.icon} ${styles.purple}`}>
+            <GraduationCap size={18} />
+          </div>
+
+          <div className={styles.activityText}>
+            <strong>
+              25 new students registered
+            </strong>
+
+            <span>Yesterday</span>
+          </div>
+        </div>
       </div>
     </section>
   );
