@@ -68,8 +68,8 @@
 
 .logo {
   text-align: center;
-  margin-top: 22px;
-  margin-bottom: 30px;
+  margin-top: 0px;
+  margin-bottom: -15px;
 }
 
 
@@ -84,12 +84,12 @@
   align-items: center;
   justify-content: center;
 
-  margin-top: 22px;
-  margin-bottom: 30px;
+  margin-top: 21px;
+  margin-bottom: 1px;
 }
 
 .logo img {
-  width: 145px;
+  width: 275px;
   height: auto;
   object-fit: contain;
   display: block;
