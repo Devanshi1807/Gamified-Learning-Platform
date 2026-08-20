@@ -9,6 +9,8 @@
 .mainArea {
   min-height: 100vh;
   transition: margin-left 0.3s ease;
+  overflow :visible ;
+  position: relative;
 }
 
 .withSidebar {
@@ -23,6 +25,9 @@
   padding: 52px 48px 60px;
   max-width: 1500px;
   margin: 0 auto;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------------- WELCOME ---------------- */
@@ -157,4 +162,189 @@
   .welcomeSection p {
     font-size: 14px;
   }
+}
+
+
+/* ================================
+   SMALL WORKING CALENDAR
+================================ */
+
+.miniCalendarWrapper {
+  position: relative;
+  z-index: 50;
+}
+
+.miniDateCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 138px;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.miniDateCard:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+}
+
+.miniCalendarIcon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: #f1f5ff;
+  color: #2563eb;
+  font-size: 16px;
+}
+
+.miniDateText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.miniDateText strong {
+  color: #172554;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.miniDateText span {
+  color: #64748b;
+  font-size: 10px;
+}
+
+.miniArrow {
+  margin-left: auto;
+  color: #64748b;
+  font-size: 15px;
+}
+
+/* Popup */
+
+.miniCalendarPopup {
+  position:absolute; ;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 290px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.15);
+  animation: calendarPopup 0.18s ease-out;
+  z-index: 10;
+}
+
+@keyframes calendarPopup {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.miniCalendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.miniCalendarHeader strong {
+  color: #172554;
+  font-size: 14px;
+}
+
+.monthButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 7px;
+  background: #f1f5f9;
+  color: #172554;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.monthButton:hover {
+  background: #e2e8f0;
+}
+
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 7px;
+}
+
+.weekDays span {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.calendarDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendarDay {
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #334155;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.calendarDay:hover:not(:disabled) {
+  background: #eef2ff;
+  color: #2563eb;
+}
+
+.calendarDay:disabled {
+  cursor: default;
+}
+
+.selectedDay {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.todayButton {
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.todayButton:hover {
+  background: #dbeafe;
+}
+.miniCalendar {
+  position: relative;
+  z-index: 1;
 }

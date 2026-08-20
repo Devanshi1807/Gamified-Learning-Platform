@@ -54,6 +54,9 @@
 .header {
   padding-bottom: 30px;
   border-bottom: 1px solid #e3e9f2;
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
 }
 
 .header h1 {

@@ -6,6 +6,7 @@ import DashboardHeader from "./DashboardHeader";
 import StatCard from "./StatCard";
 import QuickActions from "./QuickActions";
 import RecentActivity from "./RecentActivity";
+import MiniCalendar from "./MiniCalendar";
 import styles from "./dashboard.module.css";
 
 export default function DashboardPage() {
@@ -13,6 +14,7 @@ export default function DashboardPage() {
 
   return (
     <div className={styles.dashboard}>
+
       <Sidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
@@ -20,15 +22,22 @@ export default function DashboardPage() {
 
       <div
         className={`${styles.mainArea} ${
-          sidebarOpen ? styles.withSidebar : styles.fullWidth
+          sidebarOpen
+            ? styles.withSidebar
+            : styles.fullWidth
         }`}
       >
+
         <DashboardHeader
-          onMenuClick={() => setSidebarOpen((prev) => !prev)}
+          onMenuClick={() =>
+            setSidebarOpen((prev) => !prev)
+          }
         />
 
         <main className={styles.content}>
+
           <div className={styles.welcomeSection}>
+
             <div>
               <div className={styles.welcomeSmall}>
                 ✣ &nbsp; WELCOME BACK, NIKHIL 👋
@@ -36,20 +45,18 @@ export default function DashboardPage() {
 
               <h1>Welcome, Test School</h1>
 
-              <p>Here's what's happening in your school today.</p>
+              <p>
+                Here's what's happening in your school today.
+              </p>
             </div>
 
-            <div className={styles.dateCard}>
-              <div className={styles.calendarIcon}>▣</div>
+            {/* WORKING SMALL CALENDAR */}
+            <MiniCalendar />
 
-              <div>
-                <strong>May 23, 2025</strong>
-                <span>Friday</span>
-              </div>
-            </div>
           </div>
 
           <section className={styles.statsGrid}>
+
             <StatCard
               type="teachers"
               title="Teachers"
@@ -70,13 +77,18 @@ export default function DashboardPage() {
               value="10"
               description="Active classes"
             />
+
           </section>
 
           <QuickActions />
+         
 
           <RecentActivity />
+
         </main>
+
       </div>
+
     </div>
   );
 }
