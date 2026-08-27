@@ -161,38 +161,85 @@ export const subjects: Subject[] = [
       },
     ],
   },
+{
+  id: "science",
+  name: "Science",
+  description:
+    "Explore the wonderful world of science through curiosity, experiments and games.",
 
-  {
-    id: "social-science",
-    name: "Social Science",
-    description:
-      "Discover history, geography, civics and the world around you.",
-
-    chapters: [
-      {
-        id: 1,
-        name: "How, When and Where",
-        progress: 0,
-        modules: [],
-      },
-      {
-        id: 2,
-        name: "From Trade to Territory",
-        progress: 0,
-        modules: [],
-      },
-      {
-        id: 3,
-        name: "Ruling the Countryside",
-        progress: 0,
-        modules: [],
-      },
-      {
-        id: 4,
-        name: "Tribals, Dikus and the Vision of a Golden Age",
-        progress: 0,
-        modules: [],
-      },
-    ],
-  },
+  chapters: [
+    {
+      id: 1,
+      name: "The Wonderful World of Science",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 2,
+      name: "Diversity in the Living World",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 3,
+      name: "Mindful Eating: A Path to a Healthy Body",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 4,
+      name: "Exploring Magnets",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 5,
+      name: "Measurement of Length and Motion",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 6,
+      name: "Materials Around Us",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 7,
+      name: "Temperature and its Measurement",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 8,
+      name: "A Journey through States of Water",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 9,
+      name: "Methods of Separation in Everyday Life",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 10,
+      name: "Living Creatures: Exploring their Characteristics",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 11,
+      name: "Nature's Treasures",
+      progress: 0,
+      modules: [],
+    },
+    {
+      id: 12,
+      name: "Beyond Earth",
+      progress: 0,
+      modules: [],
+    },
+  ],
+},
 ];

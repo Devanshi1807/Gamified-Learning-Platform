@@ -83,19 +83,19 @@ export async function getChapterById(
 
   const subject = subjectResult.rows[0];
 
-  const chapterResult = await pool.query(
-    `
-    SELECT
-      id,
-      chapter_number,
-      name,
-      ncert_url
-    FROM chapters
-    WHERE id = $1
-      AND subject_id = $2
-    `,
-    [chapterId, subject.id]
-  );
+ const chapterResult = await pool.query(
+  `
+  SELECT
+    id,
+    chapter_number,
+    name,
+    ncert_url
+  FROM chapters
+  WHERE chapter_number = $1
+    AND subject_id = $2
+  `,
+  [chapterId, subject.id]
+);
 
   if (chapterResult.rows.length === 0) {
     return null;
@@ -103,20 +103,24 @@ export async function getChapterById(
 
   const chapter = chapterResult.rows[0];
 
-  const modulesResult = await pool.query(
-    `
-    SELECT
-      id,
-      module_number,
-      name,
-      description,
-      game_type
-    FROM modules
-    WHERE chapter_id = $1
-    ORDER BY module_number ASC
-    `,
-    [chapter.id]
-  );
+const modulesResult = await pool.query(
+  `
+  SELECT
+    id,
+    module_number,
+    name,
+    description,
+    game_type
+  FROM modules
+  WHERE chapter_id = $1
+  ORDER BY module_number ASC
+  `,
+  [String(chapter.id)]
+);
+
+console.log("SCIENCE DEBUG");
+console.log("Chapter ID:", chapter.id);
+console.log("Modules:", modulesResult.rows);
 
   return {
     subject,
@@ -129,7 +133,7 @@ export async function getChapterById(
 export async function getModuleById(
   subjectCode: string,
   chapterId: number,
-  moduleId: number
+  moduleId: string
 ) {
   const result = await pool.query(
     `
@@ -142,7 +146,7 @@ export async function getModuleById(
       c.name AS chapter_name,
       c.chapter_number,
 
-      m.id AS module_id,
+      m.id AS module_db_id,
       m.module_number,
       m.name AS module_name,
       m.description,
@@ -157,10 +161,10 @@ export async function getModuleById(
       ON c.subject_id = s.id
 
     WHERE s.code = $1
-      AND c.id = $2
-      AND m.id = $3
+      AND c.chapter_number = $2
+      AND m.module_number = $3
     `,
-    [subjectCode, chapterId, moduleId]
+    [subjectCode, chapterId, Number(moduleId)]
   );
 
   if (result.rows.length === 0) {
@@ -169,3 +173,4 @@ export async function getModuleById(
 
   return result.rows[0];
 }
+

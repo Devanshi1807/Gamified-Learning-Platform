@@ -101,7 +101,7 @@ export default async function ChapterPage({
                 modules.map((module, index) => (
                   <Link
                     key={module.id}
-                    href={`/student/subjects/${subject.code}/chapters/${chapter.id}/modules/${module.id}`}
+                  href={`/student/subjects/${subject.code}/chapters/${chapter.chapter_number}/modules/${module.module_number}`}
                     className={styles.moduleCard}
                   >
                     <div className={styles.moduleNumber}>
