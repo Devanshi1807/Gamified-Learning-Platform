@@ -1,103 +1,102 @@
 import Link from "next/link";
 import {
+  FaCheckCircle,
+  FaMedal,
+  FaClipboardList,
+  FaPlayCircle,
   FaBookOpen,
-  FaCalculator,
-  FaFlask,
-  FaGlobeAsia,
-  FaLanguage,
 } from "react-icons/fa";
 
 import styles from "./SubjectGrid.module.css";
 
-interface Subject {
-  id: number;
-  name: string;
-  chapters: number;
-  icon: React.ElementType;
-  theme: string;
-}
-
-interface SubjectGridProps {
-  subjects?: Subject[];
-}
-
-const defaultSubjects: Subject[] = [
+const activities = [
   {
     id: 1,
-    name: "English",
-    chapters: 12,
-    icon: FaLanguage,
-    theme: "english",
+    Icon: FaCheckCircle,
+    color: "#2563eb",
+    bg: "#eef5ff",
+    text: "Completed Quiz — Rational Numbers",
+    subject: "Mathematics",
+    time: "2 hours ago",
   },
   {
     id: 2,
-    name: "Mathematics",
-    chapters: 14,
-    icon: FaCalculator,
-    theme: "mathematics",
+    Icon: FaMedal,
+    color: "#f59e0b",
+    bg: "#fff7ed",
+    text: "Earned Badge — Quick Learner",
+    subject: "Achievement",
+    time: "Yesterday",
   },
   {
     id: 3,
-    name: "Science",
-    chapters: 11,
-    icon: FaFlask,
-    theme: "science",
+    Icon: FaClipboardList,
+    color: "#10b981",
+    bg: "#ecfaf7",
+    text: "Submitted Assignment — Plants",
+    subject: "Science",
+    time: "2 days ago",
   },
   {
     id: 4,
-    name: "Social Science",
-    chapters: 10,
-    icon: FaGlobeAsia,
-    theme: "socialScience",
+    Icon: FaPlayCircle,
+    color: "#f59e0b",
+    bg: "#fff7ed",
+    text: "Joined Live Class — Grammar",
+    subject: "English",
+    time: "3 days ago",
+  },
+  {
+    id: 5,
+    Icon: FaBookOpen,
+    color: "#7c3aed",
+    bg: "#f5f0ff",
+    text: "Completed Chapter — The Constitution",
+    subject: "Social Science",
+    time: "4 days ago",
   },
 ];
 
-export default function SubjectGrid({
-  subjects = defaultSubjects,
-}: SubjectGridProps) {
+export default function RecentActivity() {
   return (
     <section className={styles.container}>
 
       {/* HEADING */}
       <div className={styles.heading}>
         <div>
-          <h2>Subjects</h2>
-          <p>Explore your subjects and continue learning.</p>
+          <h2>Recent Activities</h2>
+          <p>Your learning history.</p>
         </div>
+
+        <Link href="/student/activities" className={styles.viewAll}>
+          View all <span>→</span>
+        </Link>
       </div>
 
-
-      {/* SUBJECT GRID */}
-      <div className={styles.grid}>
-        {subjects.map((subject) => {
-          const Icon = subject.icon;
-
+      {/* ACTIVITY LIST */}
+      <div className={styles.list}>
+        {activities.map((item) => {
+          const { Icon } = item;
           return (
-            <Link
-              key={subject.id}
-              href={`/student/subjects/${subject.id}`}
-              className={`${styles.card} ${styles[subject.theme]}`}
-            >
-              <div className={styles.iconWrapper}>
+            <div key={item.id} className={styles.item}>
+              <div
+                className={styles.iconWrap}
+                style={{ background: item.bg, color: item.color }}
+              >
                 <Icon />
               </div>
 
-              <div className={styles.cardContent}>
-                <h3>{subject.name}</h3>
-
-                <p>
-                  {subject.chapters} Chapters
-                </p>
+              <div className={styles.itemContent}>
+                <p className={styles.itemText}>{item.text}</p>
+                <span className={styles.itemMeta}>
+                  {item.subject} · {item.time}
+                </span>
               </div>
-
-              <span className={styles.arrow}>
-                →
-              </span>
-            </Link>
+            </div>
           );
         })}
       </div>
 
     </section>
   );
-}
+}

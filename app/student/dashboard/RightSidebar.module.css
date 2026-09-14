@@ -1,428 +1,229 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-
+﻿
 .sidebar {
   display: flex;
   flex-direction: column;
-
   gap: 18px;
-
   font-family: "Manrope", sans-serif;
 }
 
+/* ========================= PROFILE CARD ========================= */
 
-/* =========================
-   COMMON
-========================= */
-
-.eyebrow {
-  display: block;
-
-  margin-bottom: 5px;
-
-  color: #2563eb;
-
-  font-size: 8px;
-  font-weight: 800;
-
-  letter-spacing: 1.1px;
-}
-
-.streakHeader h2,
-.sectionHeading h2 {
-  margin: 0;
-
-  color: #17233c;
-
-  font-size: 15px;
-  font-weight: 800;
-}
-
-
-/* =========================
-   STREAK CARD
-========================= */
-
-.streakCard {
-  padding: 20px;
-
-  position: relative;
-  overflow: hidden;
-
-  border-radius: 17px;
-
-  background: linear-gradient(
-    145deg,
-    #fff7e8,
-    #fff1d8
-  );
-
-  border: 1px solid #f6dfb7;
-
-  box-shadow:
-    0 5px 18px rgba(120, 80, 20, 0.05);
-}
-
-
-/* Decorative circle */
-
-.streakCard::after {
-  content: "";
-
-  position: absolute;
-
-  width: 110px;
-  height: 110px;
-
-  border-radius: 50%;
-
-  right: -48px;
-  top: -45px;
-
-  background: rgba(245, 158, 11, 0.09);
-
-  pointer-events: none;
-}
-
-
-/* =========================
-   STREAK HEADER
-========================= */
-
-.streakHeader {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  position: relative;
-  z-index: 1;
-}
-
-.streakHeader h2 {
-  color: #684713;
-
-  font-size: 15px;
-}
-
-.fireIcon {
-  width: 38px;
-  height: 38px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 11px;
-
-  background: #fff0ce;
-
-  color: #f59e0b;
-
-  font-size: 17px;
-
-  position: relative;
-  z-index: 1;
-}
-
-
-/* =========================
-   STREAK NUMBER
-========================= */
-
-.streakNumber {
-  display: flex;
-  align-items: baseline;
-
-  gap: 5px;
-
-  margin-top: 22px;
-
-  position: relative;
-  z-index: 1;
-}
-
-.streakNumber strong {
-  color: #b45309;
-
-  font-size: 36px;
-  font-weight: 800;
-
-  line-height: 1;
-}
-
-.streakNumber span {
-  color: #9a6b32;
-
-  font-size: 11px;
-  font-weight: 700;
-}
-
-
-/* =========================
-   STREAK BAR
-========================= */
-
-.streakBar {
-  width: 100%;
-  height: 8px;
-
-  margin-top: 15px;
-
-  overflow: hidden;
-
-  border-radius: 20px;
-
-  background: #f3dfbd;
-
-  position: relative;
-  z-index: 1;
-}
-
-.streakValue {
-  height: 100%;
-
-  border-radius: inherit;
-
-  background: linear-gradient(
-    90deg,
-    #f59e0b,
-    #fb923c
-  );
-
-  transition: width 0.4s ease;
-}
-
-
-/* =========================
-   STREAK FOOTER
-========================= */
-
-.streakFooter {
-  display: flex;
-  justify-content: space-between;
-
-  gap: 10px;
-
-  margin-top: 8px;
-
-  position: relative;
-  z-index: 1;
-}
-
-.streakFooter span {
-  color: #9a6b32;
-
-  font-size: 9px;
-  font-weight: 600;
-}
-
-.streakMessage {
-  margin: 14px 0 0;
-
-  color: #85602f;
-
-  font-size: 10px;
-  font-weight: 600;
-
-  position: relative;
-  z-index: 1;
-}
-
-
-/* =========================
-   ACHIEVEMENTS CARD
-========================= */
-
-.achievementsCard {
-  padding: 20px;
-
+.profileCard {
+  padding: 22px;
   background: #ffffff;
-
   border: 1px solid #e1eaf4;
-
   border-radius: 17px;
-
-  box-shadow:
-    0 4px 14px rgba(37, 76, 130, 0.035);
+  box-shadow: 0 4px 14px rgba(37, 76, 130, 0.035);
 }
 
-
-/* =========================
-   HEADING
-========================= */
-
-.sectionHeading {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  padding-bottom: 16px;
-
-  border-bottom: 1px solid #edf2f7;
-}
-
-.trophyIcon {
-  color: #f59e0b;
-
-  font-size: 17px;
-}
-
-
-/* =========================
-   ACHIEVEMENT LIST
-========================= */
-
-.achievementList {
-  display: flex;
-  flex-direction: column;
-}
-
-.achievement {
+.profileHeader {
   display: flex;
   align-items: center;
-
-  gap: 11px;
-
-  padding: 14px 0;
-
-  border-bottom: 1px solid #f0f4f8;
+  gap: 14px;
 }
 
-.achievement:last-child {
-  border-bottom: none;
-}
-
-
-/* =========================
-   ACHIEVEMENT ICON
-========================= */
-
-.achievementIcon {
-  width: 35px;
-  height: 35px;
-
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
-  border-radius: 10px;
-
-  background: #f1f5ff;
-
-  color: #2563eb;
-
-  font-size: 13px;
+  letter-spacing: 0.5px;
 }
 
-
-/* Give some variety */
-
-.achievement:nth-child(2) .achievementIcon {
-  background: #fff7df;
-
-  color: #e6a008;
-}
-
-.achievement:nth-child(3) .achievementIcon {
-  background: #fff0e8;
-
-  color: #ea6a2a;
-}
-
-
-/* =========================
-   TEXT
-========================= */
-
-.achievementContent {
+.profileInfo {
   min-width: 0;
 }
 
-.achievementContent h3 {
+.profileInfo h2 {
   margin: 0;
-
-  color: #34445c;
-
-  font-size: 11px;
+  color: #17233c;
+  font-size: 16px;
   font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.achievementContent p {
+.profileInfo p {
   margin: 3px 0 0;
-
-  color: #8a98aa;
-
-  font-size: 9px;
+  color: #718096;
+  font-size: 11px;
   font-weight: 500;
-
-  line-height: 1.4;
 }
 
+.studentId {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #eef5ff;
+  color: #2563eb;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
 
-/* =========================
-   VIEW ALL
-========================= */
+/* ========================= XP SECTION ========================= */
 
-.viewAll {
+.xpSection {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #edf2f7;
+}
+
+.xpHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.xpLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #34445c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.boltIcon {
+  color: #f59e0b;
+  font-size: 12px;
+}
+
+.xpTarget {
+  color: #8a98aa;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.xpBar {
   width: 100%;
+  height: 8px;
+  border-radius: 20px;
+  background: #e8eff7;
+  overflow: hidden;
+}
 
+.xpFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  transition: width 0.4s ease;
+}
+
+.xpHint {
+  margin: 8px 0 0;
+  color: #8a98aa;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* ========================= HELP CARD ========================= */
+
+.helpCard {
+  padding: 22px;
+  background: linear-gradient(145deg, #1e3a8a, #2563eb);
+  border-radius: 17px;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.helpCard::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  right: -40px;
+  top: -40px;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.helpIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  gap: 5px;
-
-  margin-top: 15px;
-
-  padding: 9px;
-
-  border: none;
-  border-radius: 9px;
-
-  background: #eef5ff;
-
-  color: #2563eb;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 10px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
 }
 
-.viewAll span {
-  font-size: 13px;
+.helpContent {
+  position: relative;
+  z-index: 1;
+}
 
+.helpContent h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.helpContent p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.chatButton {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #2563eb;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.chatButton span {
+  font-size: 14px;
   transition: transform 0.2s ease;
 }
 
-.viewAll:hover {
-  background: #e2edff;
-
-  color: #1d4ed8;
+.chatButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-.viewAll:hover span {
+.chatButton:hover span {
   transform: translateX(3px);
 }
 
+/* ========================= TABLET ========================= */
 
-/* =========================
-   MOBILE / TABLET
-========================= */
-
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .sidebar {
     display: grid;
-
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
     align-items: start;
   }
 }

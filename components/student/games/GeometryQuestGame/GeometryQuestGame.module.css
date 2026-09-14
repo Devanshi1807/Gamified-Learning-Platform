@@ -1,0 +1,866 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.game {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 30px auto 0;
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe8f3;
+  border-radius: 20px;
+
+  font-family: "Manrope", sans-serif;
+
+  box-shadow:
+    0 8px 25px rgba(37, 76, 130, 0.06);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.gameHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid #e8eef5;
+}
+
+.gameLabel {
+  display: inline-block;
+
+  color: #2563eb;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.gameHeader h2 {
+  margin: 6px 0 0;
+
+  color: #17233c;
+
+  font-size: 22px;
+  font-weight: 800;
+
+  letter-spacing: -0.4px;
+}
+
+.levelInfo {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 2px;
+}
+
+.levelInfo span {
+  color: #8a98aa;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.levelInfo strong {
+  color: #2563eb;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progressArea {
+  margin-top: 22px;
+}
+
+.progressText {
+  display: flex;
+  justify-content: space-between;
+
+  color: #8190a4;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.progressBar {
+  height: 7px;
+
+  margin-top: 7px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #eaf0f7;
+}
+
+.progressBar div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #38bdf8
+  );
+}
+
+
+/* =========================
+   INSTRUCTION
+========================= */
+
+.instruction {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-top: 25px;
+  padding: 15px 17px;
+
+  border: 1px solid #dbe8f6;
+  border-radius: 13px;
+
+  background: #f4f8ff;
+}
+
+.instructionIcon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #e1eeff;
+
+  font-size: 18px;
+}
+
+.instruction strong {
+  display: block;
+
+  color: #25324a;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.instruction p {
+  margin: 4px 0 0;
+
+  color: #718096;
+
+  font-size: 10.5px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================
+   DIAGRAM CARD
+========================= */
+
+.diagramCard {
+  margin-top: 24px;
+
+  padding: 20px;
+
+  border: 1px solid #e2eaf3;
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fbfdff,
+      #f7faff
+    );
+}
+
+.diagramLabel {
+  margin-bottom: 7px;
+
+  color: #91a0b1;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-align: center;
+}
+
+.diagram {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  max-height: 420px;
+}
+
+
+/* =========================
+   GEOMETRY
+========================= */
+
+.geometryLine {
+  stroke: #253b5c;
+
+  stroke-width: 3;
+
+  stroke-linecap: round;
+}
+
+.angleHighlight {
+  fill: rgba(37, 99, 235, 0.13);
+
+  stroke: #2563eb;
+
+  stroke-width: 2;
+}
+
+.point {
+  fill: #253b5c;
+}
+
+.vertexPoint {
+  fill: #2563eb;
+}
+
+.pointLabel,
+.vertexLabel {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  fill: #25324a;
+}
+
+.vertexLabel {
+  fill: #2563eb;
+}
+
+.pointGroup {
+  cursor: pointer;
+}
+
+.hitArea {
+  fill: transparent;
+
+  pointer-events: all;
+}
+
+.pointGroup:hover .point {
+  fill: #2563eb;
+}
+
+.pointGroup:hover .pointLabel {
+  fill: #2563eb;
+}
+
+.selectedPoint .hitArea {
+  fill: rgba(37, 99, 235, 0.10);
+}
+
+.selectedPoint .point,
+.selectedPoint .vertexPoint {
+  fill: #f59e0b;
+}
+
+.selectedPoint .pointLabel,
+.selectedPoint .vertexLabel {
+  fill: #d97706;
+}
+
+
+/* =========================
+   SELECTION
+========================= */
+
+.selectionArea {
+  max-width: 420px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin: 17px auto 0;
+  padding: 11px 15px;
+
+  border-radius: 10px;
+
+  background: #f5f8fc;
+
+  color: #8190a4;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.selectionArea strong {
+  color: #2563eb;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+.correctFeedback,
+.wrongFeedback {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  margin-top: 17px;
+
+  padding: 14px 16px;
+
+  border-radius: 11px;
+
+  font-size: 10.5px;
+}
+
+.correctFeedback {
+  background: #eaf8f3;
+
+  border: 1px solid #ccecdf;
+
+  color: #137858;
+}
+
+.wrongFeedback {
+  background: #fff4f4;
+
+  border: 1px solid #f2d5d8;
+
+  color: #b33c4b;
+}
+
+.correctFeedback > span,
+.wrongFeedback > span {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  font-weight: 800;
+}
+
+.correctFeedback > span {
+  background: #d5f1e5;
+}
+
+.wrongFeedback > span {
+  background: #f8dce0;
+}
+
+.correctFeedback strong,
+.wrongFeedback strong {
+  display: block;
+
+  font-size: 11px;
+}
+
+.correctFeedback p,
+.wrongFeedback p {
+  margin: 3px 0 0;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 20px;
+}
+
+.checkButton,
+.nextButton,
+.retryButton {
+  min-width: 155px;
+  height: 43px;
+
+  padding: 0 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: #ffffff;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.checkButton,
+.nextButton {
+  background: #2563eb;
+
+  box-shadow:
+    0 6px 14px rgba(37, 99, 235, 0.18);
+}
+
+.checkButton:hover:not(:disabled),
+.nextButton:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+}
+
+.checkButton:disabled {
+  background: #b9c7d8;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.retryButton {
+  background: #f59e0b;
+
+  box-shadow:
+    0 6px 14px rgba(245, 158, 11, 0.15);
+}
+
+.retryButton:hover {
+  background: #d97706;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .game {
+    padding: 22px 17px;
+  }
+
+  .gameHeader h2 {
+    font-size: 18px;
+  }
+
+  .diagramCard {
+    padding: 10px;
+  }
+
+  .diagram {
+    max-height: 350px;
+  }
+
+  .selectionArea {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+}
+
+.selectedRayLine {
+  stroke: #2563eb;
+
+  stroke-width: 5;
+}
+
+.rayHitArea {
+  stroke: transparent;
+
+  stroke-width: 24;
+
+  stroke-linecap: round;
+
+  cursor: pointer;
+}
+
+.rayHitArea:hover {
+  stroke: rgba(37, 99, 235, 0.10);
+}
+
+.angleOptions {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.angleOption,
+.angleOptionSelected {
+  min-height: 55px;
+
+  border-radius: 12px;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.angleOption {
+  border: 1px solid #dce5ef;
+
+  background: #f9fbfe;
+
+  color: #34445c;
+}
+
+.angleOption:hover {
+  transform: translateY(-2px);
+
+  background: #eef5ff;
+
+  border-color: #9abdf0;
+
+  color: #2563eb;
+}
+
+.angleOptionSelected {
+  border: 2px solid #2563eb;
+
+  background: #e7f0ff;
+
+  color: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .angleOptions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   CONSTRUCTION BOARD
+========================= */
+
+.constructionBoard {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  max-height: 450px;
+}
+
+
+/* GRID */
+
+.gridLine {
+  stroke: #e4ebf3;
+  stroke-width: 1;
+}
+
+
+/* CONSTRUCTED GEOMETRY */
+
+.constructedLine {
+  stroke: #2563eb;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.constructedRay {
+  stroke: #2563eb;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.arrowMarker {
+  fill: #2563eb;
+}
+
+
+/* POINTS */
+
+.constructionPoint {
+  cursor: pointer;
+}
+
+.pointHitArea {
+  fill: transparent;
+}
+
+.constructionPoint:hover .constructionDot {
+  fill: #2563eb;
+}
+
+.constructionDot {
+  fill: #253b5c;
+}
+
+.selectedConstructionPoint {
+  fill: #f59e0b;
+
+  stroke: #ffffff;
+  stroke-width: 3;
+}
+
+.constructionLabel {
+  font-family: "Manrope", sans-serif;
+
+  fill: #25324a;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   LASER CHALLENGE
+========================= */
+
+.targetZone {
+  fill: rgba(245, 158, 11, 0.15);
+
+  stroke: #f59e0b;
+
+  stroke-width: 3;
+
+  stroke-dasharray: 6 5;
+}
+
+.targetPoint {
+  fill: #f59e0b;
+}
+
+.targetLabel {
+  font-family: "Manrope", sans-serif;
+
+  fill: #b45309;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.laserBeam {
+  stroke: #ef4444;
+
+  stroke-width: 5;
+
+  stroke-linecap: round;
+
+  filter:
+    drop-shadow(
+      0 0 5px rgba(239, 68, 68, 0.35)
+    );
+}
+
+.laserTip {
+  fill: #ef4444;
+
+  stroke: #ffffff;
+
+  stroke-width: 3;
+}
+
+.angleControl {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  margin-top: 20px;
+}
+
+.angleValue {
+  width: 75px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background: #eef5ff;
+
+  color: #2563eb;
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+.angleControl input[type="range"] {
+  width: 100%;
+
+  accent-color: #2563eb;
+
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .angleControl {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .angleValue {
+    align-self: center;
+  }
+}
+
+.angleRay {
+  stroke: #2563eb;
+
+  stroke-width: 5;
+
+  stroke-linecap: round;
+}
+
+.angleArc {
+  fill: none;
+
+  stroke: #f59e0b;
+
+  stroke-width: 4;
+
+  stroke-linecap: round;
+
+  opacity: 0.85;
+}
+
+.smallGeometryDiagram {
+  width: 100%;
+  max-width: 300px;
+
+  display: block;
+
+  margin: 0 auto;
+}
+
+.mixedDiagramGrid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin-top: 24px;
+}
+
+.mixedDiagramCard {
+  padding: 17px;
+
+  border: 1px solid #e2eaf3;
+  border-radius: 14px;
+
+  background: #fbfdff;
+}
+
+.mixedDiagramCard > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #91a0b1;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-align: center;
+}
+
+.classificationOptions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 10px;
+}
+
+.classificationOptions .angleOption,
+.classificationOptions .angleOptionSelected {
+  min-height: 40px;
+
+  font-size: 10px;
+}
+
+@media (max-width: 700px) {
+  .mixedDiagramGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.angleValueLabel {
+  font-family: "Manrope", sans-serif;
+
+  fill: #f59e0b;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .angleValueLabel {
+    font-size: 14px;
+  }
+}

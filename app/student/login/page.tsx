@@ -1,12 +1,15 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaArrowLeft, FaGraduationCap, FaKey, FaUserGraduate } from "react-icons/fa";
 
 import styles from "./login.module.css";
 
 export default function Page() {
+  const router = useRouter();
+
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,27 +33,16 @@ export default function Page() {
 
     setIsSubmitting(true);
 
-    /*
-     * Backend will be connected later.
-     *
-     * POST /api/student/login
-     *
-     * {
-     *   studentId,
-     *   password
-     * }
-     */
-
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Simulate network delay
+      await new Promise((resolve) => setTimeout(resolve, 800));
 
-      console.log({
-        studentId,
-        password,
-      });
-
-      // Temporary only
-      setError("Student login backend is not connected yet.");
+      // Demo credentials — replace with real API call when backend is ready
+      if (studentId.trim() === "STU001" && password === "student123") {
+        router.push("/student/dashboard");
+      } else {
+        setError("Invalid Student ID or password. Try STU001 / student123.");
+      }
     } finally {
       setIsSubmitting(false);
     }

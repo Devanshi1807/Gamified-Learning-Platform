@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="py-10 text-center text-gray-400">
-      © 2026 Nois
+    <footer className="px-5 py-4 text-center text-xs text-gray-400 sm:py-5">
+      © 2026 NOIS
     </footer>
   );
 }

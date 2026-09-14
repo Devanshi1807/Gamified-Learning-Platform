@@ -9,6 +9,7 @@ import PatternDetectiveGame from "@/components/student/games/PatternDetectiveGam
 
 import NumberSortingGame from "@/components/student/games/NumberSortingGame";
 import NumberBuilderGame from "@/components/student/games/NumberBuilderGame";
+import GeometryQuestGame from "@/components/student/games/GeometryQuestGame/GeometryQuestGame";
 
 export default async function ModulePage({
   params,
@@ -61,7 +62,9 @@ export default async function ModulePage({
 
           {/* GAME */}
 
-          {module.game_type === "pattern-discovery" ? (
+          {module.game_type === "geometry-quest" ? (
+            <GeometryQuestGame />
+          ) : module.game_type === "pattern-discovery" ? (
             <PatternDetectiveGame />
           ) : module.game_type === "number-builder" ? (
             <NumberBuilderGame />

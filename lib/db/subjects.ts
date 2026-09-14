@@ -16,9 +16,7 @@ interface Subject {
   chapters: Chapter[];
 }
 
-export async function getSubjectByCode(
-  code: string
-): Promise<Subject | null> {
+export async function getSubjectByCode(code: string): Promise<Subject | null> {
   const subjectResult = await pool.query(
     `
     SELECT
@@ -30,7 +28,7 @@ export async function getSubjectByCode(
     FROM subjects
     WHERE code = $1
     `,
-    [code]
+    [code],
   );
 
   if (subjectResult.rows.length === 0) {
@@ -50,7 +48,7 @@ export async function getSubjectByCode(
     WHERE subject_id = $1
     ORDER BY chapter_number ASC
     `,
-    [subject.id]
+    [subject.id],
   );
 
   return {
@@ -59,10 +57,7 @@ export async function getSubjectByCode(
   };
 }
 
-export async function getChapterById(
-  subjectCode: string,
-  chapterId: number
-) {
+export async function getChapterById(subjectCode: string, chapterId: number) {
   const subjectResult = await pool.query(
     `
     SELECT
@@ -74,7 +69,7 @@ export async function getChapterById(
     FROM subjects
     WHERE code = $1
     `,
-    [subjectCode]
+    [subjectCode],
   );
 
   if (subjectResult.rows.length === 0) {
@@ -85,17 +80,22 @@ export async function getChapterById(
 
   const chapterResult = await pool.query(
     `
-    SELECT
-      id,
-      chapter_number,
-      name,
-      ncert_url
-    FROM chapters
-    WHERE id = $1
-      AND subject_id = $2
-    `,
-    [chapterId, subject.id]
+  SELECT
+    id,
+    chapter_number,
+    name,
+    ncert_url
+  FROM chapters
+  WHERE chapter_number = $1
+    AND subject_id = $2
+  `,
+    [chapterId, subject.id],
   );
+
+  console.log("subjectCode:", subjectCode);
+  console.log("chapterId:", chapterId);
+  console.log("subject:", subject);
+  console.log("chapter rows:", chapterResult.rows);
 
   if (chapterResult.rows.length === 0) {
     return null;
@@ -115,7 +115,7 @@ export async function getChapterById(
     WHERE chapter_id = $1
     ORDER BY module_number ASC
     `,
-    [chapter.id]
+    [chapter.id],
   );
 
   return {
@@ -125,11 +125,10 @@ export async function getChapterById(
   };
 }
 
-
 export async function getModuleById(
   subjectCode: string,
-  chapterId: number,
-  moduleId: number
+  chapterNumber: number,
+  moduleNumber: number,
 ) {
   const result = await pool.query(
     `
@@ -157,10 +156,10 @@ export async function getModuleById(
       ON c.subject_id = s.id
 
     WHERE s.code = $1
-      AND c.id = $2
-      AND m.id = $3
+      AND c.chapter_number = $2
+      AND m.module_number = $3
     `,
-    [subjectCode, chapterId, moduleId]
+    [subjectCode, chapterNumber, moduleNumber],
   );
 
   if (result.rows.length === 0) {

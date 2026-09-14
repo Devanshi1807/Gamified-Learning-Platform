@@ -1,0 +1,322 @@
+.page {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  min-height: 100vh;
+  padding: 32px;
+  background: #f7f9fc;
+  color: #172033;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 32px;
+  background: #f7f9fc;
+  color: #172033;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #5d6a7c;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.backLink:hover {
+  color: #2563eb;
+}
+
+.hero {
+  padding: 30px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #eef6ff, #f9fbff);
+  border: 1px solid #dce7f4;
+  margin-bottom: 28px;
+}
+
+.heroTop {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.iconBox {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+}
+
+.eyebrow,
+.pathBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.eyebrow {
+  margin-bottom: 7px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.hero p {
+  margin: 7px 0 0;
+  color: #718095;
+  font-size: 14px;
+}
+
+.learningExperience {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.learningHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 26px;
+}
+
+.pathBadge {
+  margin-bottom: 8px;
+}
+
+.learningHeader h2 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.learningHeader p {
+  max-width: 690px;
+  margin: 8px 0 0;
+  color: #718095;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.progressBox {
+  min-width: 92px;
+  padding: 12px 15px;
+  border-radius: 15px;
+  background: #f3f7fd;
+  text-align: center;
+}
+
+.progressBox strong {
+  display: block;
+  color: #2563eb;
+  font-size: 20px;
+}
+
+.progressBox span {
+  color: #7a8698;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stepRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.stepButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #fafbfd;
+  color: #465367;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stepButton:hover {
+  border-color: #c7d7ec;
+}
+
+.stepButtonActive {
+  background: #eff6ff;
+  border-color: #b8d1f2;
+  color: #1d4ed8;
+}
+
+.stepButtonComplete {
+  background: #f0fdf4;
+  border-color: #ccebd5;
+}
+
+.stepNumber {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #eaf2fd;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.stepButtonComplete .stepNumber {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.stepButton small,
+.stepButton strong {
+  display: block;
+}
+
+.stepButton small {
+  margin-bottom: 3px;
+  color: #8994a5;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.stepButton strong {
+  font-size: 12px;
+}
+
+.activityPanel {
+  padding: 26px;
+  border-radius: 20px;
+  background: #f9fbfe;
+  border: 1px solid #e6ebf2;
+}
+
+.activityMeta {
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.activityPanel h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.activityPanel > p {
+  max-width: 700px;
+  margin: 8px 0 20px;
+  color: #6f7c90;
+  line-height: 1.6;
+}
+
+.activityPlaceholder {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px dashed #cbd7e7;
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 24px;
+  color: #6f7c90;
+}
+
+.activityPlaceholder svg {
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.activityPlaceholder strong {
+  color: #263246;
+  font-size: 16px;
+}
+
+.activityPlaceholder span {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.activityPlaceholder .prototypeNote {
+  margin-top: 12px;
+  color: #98a3b3;
+  font-size: 11px;
+}
+
+.continueButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.continueButton:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 900px) {
+  .stepRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 20px 16px;
+  }
+
+  .hero {
+    padding: 23px;
+  }
+
+  .learningExperience {
+    padding: 20px;
+  }
+
+  .learningHeader {
+    flex-direction: column;
+  }
+
+  .stepRow {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IconType } from "react-icons";
-import {FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 interface WorkspaceCardProps {
   number: string;
@@ -20,64 +20,69 @@ export default function WorkspaceCard({
   href,
 }: WorkspaceCardProps) {
   return (
-    <Link href={href}>
+    <Link href={href} className="block h-full min-h-0">
       <div
   className="
     group
     relative
+    flex
+    h-full
+    min-h-[190px]
+    w-full
+    items-center
+    justify-between
     overflow-hidden
     rounded-3xl
     border
     border-white/40
     bg-white/80
-    backdrop-blur-md
-    p-10
+    p-5
     shadow-lg
-    hover:shadow-2xl
-    hover:-translate-y-2
+    backdrop-blur-md
     transition-all
     duration-300
-    h-72
-    flex
-    justify-between
-    items-center
+    hover:-translate-y-1
+    hover:shadow-2xl
+    sm:min-h-[210px]
+    sm:p-6
+    lg:min-h-[235px]
+    lg:p-7
   "
 >
+        <div
+          className="absolute -right-10 -top-10 h-32 w-32 rounded-full blur-3xl opacity-20 sm:h-40 sm:w-40"
+          style={{ backgroundColor: color }}
+        />
 
-  <div
-  className="absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl opacity-20"
-  style={{ backgroundColor: color }}
-/>
-        <div className="space-y-5">
+        <div className="relative z-10 min-w-0 pr-4 sm:pr-6">
           <h2
-            className="text-6xl font-black tracking-tight"
+            className="text-4xl font-black tracking-tight sm:text-5xl lg:text-[50px]"
             style={{ color }}
           >
             {number}
           </h2>
 
           <div>
-            <h3 className="text-3xl font-extrabold text-slate-900">
+            <h3 className="mt-2 text-lg font-extrabold leading-tight text-slate-900 sm:text-xl lg:text-[23px]">
               {title}
             </h3>
-
-            <p className="mt-4 max-w-xs text-slate-500 leading-relaxed">
+            <p className="mt-2 max-w-[210px] text-xs leading-5 text-slate-500 sm:text-sm">
               {description}
             </p>
+
             <div
-            className="mt-8 w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1"
-            style={{ backgroundColor: color }}
+              className="mt-4 flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-1 sm:h-11 sm:w-11"
+              style={{ backgroundColor: color }}
             >
-            <FaArrowRight className="text-white" />
+              <FaArrowRight className="text-sm text-white" />
             </div>
           </div>
-          
         </div>
 
         <Icon
-          size={140}
+          size={95}
           color={color}
-          className= "opacity-80 group-hover:scale-110 transition"
+          className="relative z-10 shrink-0 opacity-70 transition-transform duration-300 group-hover:scale-105 sm:size-[105px] lg:size-[115px]"
         />
       </div>
     </Link>

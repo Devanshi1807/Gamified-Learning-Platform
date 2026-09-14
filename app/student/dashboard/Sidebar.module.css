@@ -34,6 +34,9 @@
   gap: 12px;
 
   padding: 4px 10px;
+  text-decoration: none;
+color: inherit;
+cursor: pointer;
 }
 
 .logoContainer {
@@ -223,11 +226,22 @@
 
   text-decoration: none;
 
+  overflow: hidden;
+
   transition:
     background 0.2s ease,
     color 0.2s ease,
     transform 0.2s ease;
 }
+
+.navLabel {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .navItem:hover {
   background: #eef5ff;
@@ -390,6 +404,17 @@
 
   .navItem {
     font-size: 12.5px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .sidebar {
+    display: none;
   }
 }
 

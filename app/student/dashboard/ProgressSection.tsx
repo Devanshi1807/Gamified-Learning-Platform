@@ -1,134 +1,128 @@
 import Link from "next/link";
+import {
+  FaCalculator,
+  FaFlask,
+  FaGlobeAsia,
+  FaLanguage,
+} from "react-icons/fa";
 
 import styles from "./ProgressSection.module.css";
 
-interface ChapterProgress {
-  id: number;
-  subject: string;
-  name: string;
-  progress: number;
-}
-
-interface ProgressSectionProps {
-  chapters?: ChapterProgress[];
-}
-
-const defaultChapters: ChapterProgress[] = [
+const subjects = [
   {
     id: 1,
-    subject: "Mathematics",
-    name: "Rational Numbers",
+    name: "Mathematics",
+    chapters: 14,
     progress: 45,
+    Icon: FaCalculator,
+    color: "#2563eb",
+    bg: "#eef5ff",
+    href: "/student/subjects/1",
   },
   {
     id: 2,
-    subject: "Science",
-    name: "Plants",
-    progress: 54,
+    name: "Science",
+    chapters: 11,
+    progress: 60,
+    Icon: FaFlask,
+    color: "#10b981",
+    bg: "#ecfaf7",
+    href: "/student/subjects/2",
   },
   {
     id: 3,
-    subject: "English",
-    name: "Grammar",
-    progress: 32,
+    name: "Social Science",
+    chapters: 10,
+    progress: 30,
+    Icon: FaGlobeAsia,
+    color: "#7c3aed",
+    bg: "#f5f0ff",
+    href: "/student/subjects/3",
   },
   {
     id: 4,
-    subject: "Social Science",
-    name: "The Constitution",
+    name: "English",
+    chapters: 12,
     progress: 72,
-  },
-  {
-    id: 5,
-    subject: "Mathematics",
-    name: "Linear Equations",
-    progress: 41,
+    Icon: FaLanguage,
+    color: "#f59e0b",
+    bg: "#fff7ed",
+    href: "/student/subjects/4",
   },
 ];
 
-export default function ProgressSection({
-  chapters = defaultChapters,
-}: ProgressSectionProps) {
-  const visibleChapters = chapters.slice(0, 4);
-
-  if (visibleChapters.length === 0) {
-    return null;
-  }
-
+export default function SubjectCards() {
   return (
     <section className={styles.container}>
 
       {/* HEADING */}
       <div className={styles.heading}>
         <div>
-          <h2>Progress</h2>
-          <p>Track your learning progress.</p>
+          <h2>Your Subjects</h2>
+          <p>Continue where you left off.</p>
         </div>
-
-        {chapters.length > 4 && (
-          <Link
-            href="/student/progress"
-            className={styles.viewAll}
-          >
-            View all
-            <span>→</span>
-          </Link>
-        )}
       </div>
 
+      {/* SUBJECT GRID */}
+      <div className={styles.grid}>
+        {subjects.map((subject) => {
+          const { Icon } = subject;
+          return (
+            <Link
+              key={subject.id}
+              href={subject.href}
+              className={styles.card}
+            >
+              {/* TOP ROW */}
+              <div className={styles.cardTop}>
+                <div
+                  className={styles.iconWrap}
+                  style={{ background: subject.bg, color: subject.color }}
+                >
+                  <Icon />
+                </div>
 
-      {/* PROGRESS GRID */}
-      <div className={styles.progressGrid}>
-        {visibleChapters.map((chapter) => (
-          <div
-            key={chapter.id}
-            className={styles.progressCard}
-          >
-
-            <div className={styles.cardTop}>
-              <div>
-                <span className={styles.subject}>
-                  {chapter.subject}
+                <span
+                  className={styles.pct}
+                  style={{ color: subject.color }}
+                >
+                  {subject.progress}%
                 </span>
-
-                <h3>{chapter.name}</h3>
               </div>
 
-              <span className={styles.percentage}>
-                {chapter.progress}%
-              </span>
-            </div>
+              {/* INFO */}
+              <div className={styles.info}>
+                <h3>{subject.name}</h3>
+                <p>{subject.chapters} Chapters</p>
+              </div>
 
+              {/* PROGRESS BAR */}
+              <div className={styles.bar}>
+                <div
+                  className={styles.fill}
+                  style={{
+                    width: `${subject.progress}%`,
+                    background: subject.color,
+                  }}
+                />
+              </div>
 
-            {/* PROGRESS BAR */}
-            <div className={styles.progressBar}>
-              <div
-                className={styles.progressValue}
-                style={{
-                  width: `${chapter.progress}%`,
-                }}
-              />
-            </div>
+              {/* BOTTOM */}
+              <div className={styles.cardBottom}>
+                <span className={styles.remaining}>
+                  {100 - subject.progress}% remaining
+                </span>
 
-
-            {/* BOTTOM */}
-            <div className={styles.cardBottom}>
-              <span className={styles.remaining}>
-                {chapter.progress === 100
-                  ? "Completed"
-                  : `${100 - chapter.progress}% remaining`}
-              </span>
-
-              {chapter.progress < 100 && (
-                <button className={styles.continueButton}>
-                  Continue Learning
-                  <span>→</span>
-                </button>
-              )}
-            </div>
-
-          </div>
-        ))}
+                <span
+                  className={styles.continueBtn}
+                  style={{ color: subject.color }}
+                >
+                  Continue →
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
 
     </section>

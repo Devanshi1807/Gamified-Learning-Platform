@@ -5,87 +5,105 @@ import { usePathname } from "next/navigation";
 import {
   FaTachometerAlt,
   FaBookOpen,
-  FaClipboardList,
-  FaQuestionCircle,
+  FaHeart,
+  FaGamepad,
+  FaBolt,
   FaTrophy,
   FaMedal,
-  FaBullhorn,
-  FaUser,
+  FaQuestionCircle,
+  FaClipboardList,
+  FaCalendarAlt,
   FaCog,
 } from "react-icons/fa";
 
 import styles from "./Sidebar.module.css";
 
 interface SidebarProps {
-    schoolName?: string;
+  schoolName?: string;
   studentName?: string;
   className?: string;
   section?: string;
 }
 
 export default function Sidebar({
-    schoolName = "Delhi Public School",
+  schoolName = "Delhi Public School",
   studentName = "Akshat",
   className = "Class 8",
   section = "Section A",
 }: SidebarProps) {
   const pathname = usePathname();
 
-  const mainNavigation = [
+  const learnNavigation = [
+    { name: "Dashboard", href: "/student/dashboard", icon: FaTachometerAlt },
     {
-      name: "Dashboard",
-      href: "/student/dashboard",
-      icon: FaTachometerAlt,
-    },
-    {
-      name: "My Classes",
-      href: "/student/classes",
+      name: "NCERT Made Interactive",
+      href: "/student/ncert",
       icon: FaBookOpen,
     },
+    {
+      name: "Life Skills \u2014 Beyond NCERT",
+      href: "/student/life-skills",
+      icon: FaHeart,
+    },
+    { name: "Fun Zone", href: "/student/fun-zone", icon: FaGamepad },
+    { name: "Daily Challenges", href: "/student/challenges", icon: FaBolt },
+  ];
+
+  const communityNavigation = [
+    { name: "Leaderboard", href: "/student/leaderboard", icon: FaTrophy },
+    { name: "Badges & Rewards", href: "/student/achievements", icon: FaMedal },
+    {
+      name: "Doubt Centre",
+      href: "/student/doubt-centre",
+      icon: FaQuestionCircle,
+    },
+  ];
+
+  const adminNavigation = [
     {
       name: "Assignments",
       href: "/student/assignments",
       icon: FaClipboardList,
     },
-    {
-      name: "Quizzes",
-      href: "/student/quizzes",
-      icon: FaQuestionCircle,
-    },
-    {
-      name: "Leaderboard",
-      href: "/student/leaderboard",
-      icon: FaTrophy,
-    },
-    {
-      name: "Achievements",
-      href: "/student/achievements",
-      icon: FaMedal,
-    },
-    {
-      name: "Announcements",
-      href: "/student/announcements",
-      icon: FaBullhorn,
-    },
+    { name: "Events", href: "/student/events", icon: FaCalendarAlt },
+    { name: "Settings", href: "/student/settings", icon: FaCog },
   ];
 
-  const accountNavigation = [
-    {
-      name: "Profile",
-      href: "/student/profile",
-      icon: FaUser,
-    },
-    {
-      name: "Settings",
-      href: "/student/settings",
-      icon: FaCog,
-    },
-  ];
+  const renderNavGroup = (items: typeof learnNavigation) =>
+    items.map((item) => {
+      const Icon = item.icon;
+      const isActive =
+        pathname === item.href || pathname.startsWith(`${item.href}/`);
+      return (
+        <Link
+          key={item.href}
+          href={item.href}
+          className={`${styles.navItem} ${isActive ? styles.active : ""}`}
+        >
+          <span className={styles.icon}>
+            <Icon />
+          </span>
+          <span className={styles.navLabel}>{item.name}</span>
+        </Link>
+      );
+    });
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/school/logout", {
+        method: "POST",
+      });
+    } catch {
+      // Even if the logout API fails, continue to the main page.
+    } finally {
+      window.location.href = "/";
+    }
+  };
 
   return (
     <aside className={styles.sidebar}>
       {/* BRAND */}
-      <div className={styles.brand}>
+      <Link href="/" className={styles.brand}>
         <div className={styles.logoContainer}>
           <img src="/nois_logo.png" alt="NOIS" className={styles.logo} />
         </div>
@@ -94,80 +112,43 @@ export default function Sidebar({
           <h2>NOIS</h2>
           <p>Learning Platform</p>
         </div>
-      </div>
+      </Link>
 
       {/* STUDENT */}
       <div className={styles.studentCard}>
         <div className={styles.schoolInfo}>
           <span className={styles.schoolLabel}>SCHOOL</span>
           <h3>{schoolName}</h3>
-
           <p>
-            {studentName} • {className} • {section}
+            {studentName} · {className} · {section}
           </p>
         </div>
       </div>
 
       <div className={styles.divider} />
 
-      {/* MAIN NAVIGATION */}
+      {/* NAVIGATION */}
       <nav className={styles.navigation}>
         <p className={styles.sectionTitle}>LEARN</p>
-
         <div className={styles.navigationList}>
-          {mainNavigation.map((item) => {
-            const Icon = item.icon;
-
-            const isActive =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${styles.navItem} ${isActive ? styles.active : ""}`}
-              >
-                <span className={styles.icon}>
-                  <Icon />
-                </span>
-
-                <span>{item.name}</span>
-              </Link>
-            );
-          })}
+          {renderNavGroup(learnNavigation)}
         </div>
 
-        {/* ACCOUNT */}
-        <p className={styles.sectionTitle}>ACCOUNT</p>
-
+        <p className={styles.sectionTitle}>COMMUNITY</p>
         <div className={styles.navigationList}>
-          {accountNavigation.map((item) => {
-            const Icon = item.icon;
+          {renderNavGroup(communityNavigation)}
+        </div>
 
-            const isActive =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${styles.navItem} ${isActive ? styles.active : ""}`}
-              >
-                <span className={styles.icon}>
-                  <Icon />
-                </span>
-
-                <span>{item.name}</span>
-              </Link>
-            );
-          })}
+        <p className={styles.sectionTitle}>ADMIN</p>
+        <div className={styles.navigationList}>
+          {renderNavGroup(adminNavigation)}
         </div>
       </nav>
 
       {/* LOGOUT */}
       <div className={styles.logoutSection}>
-        <button type="button">
-          <span className={styles.logoutIcon}>↪</span>
+        <button type="button" onClick={handleLogout}>
+          <span className={styles.logoutIcon}></span>
           <span>Logout</span>
         </button>
       </div>

@@ -1,15 +1,10 @@
 import WorkspaceCard from "./WorkspaceCard";
-import styles from "./WorkspaceGrid.module.css";
-import {
-  FaUserGraduate,
-  FaChalkboardTeacher,
-  FaSchool,
-} from "react-icons/fa";
+import { FaUserGraduate, FaSchool } from "react-icons/fa";
 import { MdAppRegistration } from "react-icons/md";
 
 export default function WorkspaceGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 items-stretch gap-5 sm:gap-6 md:grid-cols-3 lg:gap-6 xl:gap-8">
       <WorkspaceCard
         number="01"
         title="Student Login"
@@ -21,15 +16,6 @@ export default function WorkspaceGrid() {
 
       <WorkspaceCard
         number="02"
-        title="Teacher Login"
-        description="Manage timetable, attendance and classroom activities."
-        color="#10B981"
-        Icon={FaChalkboardTeacher}
-        href="/teacher/login"
-      />
-
-      <WorkspaceCard
-        number="03"
         title="School Register"
         description="Register your institution and begin your digital journey."
         color="#F59E0B"
@@ -38,7 +24,7 @@ export default function WorkspaceGrid() {
       />
 
       <WorkspaceCard
-        number="04"
+        number="03"
         title="School Login"
         description="Manage teachers, students and school administration."
         color="#2563EB"
@@ -48,5 +34,3 @@ export default function WorkspaceGrid() {
     </div>
   );
 }
-
-
